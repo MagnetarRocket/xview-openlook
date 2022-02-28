@@ -1,0 +1,274 @@
+Class Name		Class Member		Description
+----------		------------		-----------
+Button			int getLabelWidth ()	Gets the width of the label.
+
+----------		------------		-----------
+ComponentDisplay	void setDefaultButton (Button &)
+
+						Specifies the default button
+						for this ComponentDisplay.
+
+			void setFocusComponent (UIComponent &component)
+
+						Specifies which component
+						should have the input focus.
+
+			UIComponent *getFocusComponent ()
+						Returns the component that has
+						the input focus.
+
+			UIComponent *nextFocusComponent ()
+
+						Sets the input focus to the
+						next component that can
+						accept the input focus.
+						A pointer to the component
+						is returned.  If there is no
+						input focus, NULL is returned.
+
+			UIComponent *previousFocusComponent ()
+
+						Sets the input focus to the
+						previous component that can
+						accept the input focus.
+						A pointer to the component
+						is returned.  If there is no
+						input focus, NULL is returned.
+
+			removeComponent (UIComponent&)
+
+ 						Removes the specified component
+						from the ComponentDisplay.
+
+			UIComponent *traverseComponents (Boolean)
+
+						Traverse the components that
+						belong to this ComponentDisplay.
+
+----------		------------		-----------
+Image			Image (int             width,
+			       int             height,
+			       unsigned short *image_bits,
+			       int             depth=1)
+
+						Change in interface:
+
+						short* to unsigned short*
+
+			Image (int            width,
+			       int            height,
+			       unsigned char *image_bits,
+			       int            depth=1)
+
+						Change in interface:
+
+						char* to unsigned char*
+
+----------		------------		-----------
+ListChoice		void setChoiceData (int, Generic*)
+			void setChoiceData (int, Generic&)
+
+						Associates the specified data
+						with the specified choice.
+
+			Generic *getChoiceData (int)
+
+						Gets the data associated with
+						the specified choice.
+
+			int getRowHeight ()	Returns the pixel height
+						of the rows in the list.
+
+----------		------------		-----------
+Notifier		stop ()			Stop the XView notifier.
+
+----------		------------		-----------
+Scroller		setEventHandler (UICHandlerFuntion)
+
+						Allows an event handler to be
+						set on a Scroller object.
+
+			setUnitLength (int)	Sets the unit length of
+						the Scroller object.
+
+			int getUnitLength ()	Gets the unit length of
+						the Scroller object.
+
+			int getLastViewStart ()	Gets the last view start of
+						the Scroller object.
+
+----------		------------		-----------
+TTYDisplay		Entire class		Provides encapsulation of the
+						XView TTYSW package.  See
+						the header file for the
+						descriptino of the member
+						functions.
+
+----------		------------		-----------
+UIChoice		replaceChoice (int, char*)
+			replaceChoice (int, Image&)
+
+						Replace the text or image
+						value of the specified choice
+						with the specified value.
+
+----------		------------		-----------
+UIComponent		setEventResult (int)	If a result is set, then
+						default processing of events
+						is skipped and the event result
+						specified is returned (if
+						appropriate).  Since the event
+						result is reset after event
+						processing is completed, this
+						must be called inside of the
+						event handler.
+
+----------		------------		-----------
+UIInputTextItem		setMask (char)		Sets the mask character to
+						mask input text that is being
+						output by the UIINputTextItem.
+						A "setEcho (FALSE)" call will
+						take precedence over a setMask
+						call.
+
+----------		------------		-----------
+UIObject		void abortDrag ()	If called when the drag status
+						is DRAG_START, then the current
+						drag operation is aborted.
+
+			Generic *findObjectData (const char *name)
+						Returns the associated object
+						data.  Returns NULL if there is
+						no object data.
+
+			void initUI ()		Added processing for
+						UIC_X_ERROR_PROC (provides
+						ability to use XV_X_ERROR_PROC).
+
+			Boolean objectCreated	Set to TRUE when
+						setUIObjectAttributes is called
+						for a particular object.
+						setUIObjectAttributes is called
+						from inside a createObject call.
+
+			Notify_error postEvent (Notify_event, Notify_event_type)
+
+						Post the specified notifier
+						event on behalf of the object.
+
+			void setAccelerator (char, UICHandlerFunction)
+
+						Specifies a character that
+						as an accelerator and the
+						function to call when the
+						accerator is triggered.
+
+			char getAcceleratorChar ()
+
+						Gets the character of the
+						last accelerator that triggered
+						on this object.
+
+			void setDestroyChildren (Boolean)
+
+						Specifies whether or not to
+						destroy the objects that are
+						the children of this object
+						when this object is destroyed.
+
+						Default: FALSE.
+
+			void setDestroyXViewObject (Boolean)
+
+						Specifies whether or not to
+						destroy the XView object that
+						this object is managing when
+						this object is destroyed.
+
+						Default: TRUE.
+
+			void addInputFunction (UICInputFunction input_function,
+					       int              file_descriptor)
+
+						Specifies a function to be
+						called when the specified
+						file descriptor is active.
+
+			void removeInputFunction
+			     (UICInputFunction input_function,
+			      int              file_descriptor)
+
+						Specifies a function to be
+						called when the specified
+						file descriptor is active.
+
+----------		------------		-----------
+UIDisplay		void reparentXWindow (XID x_window, int x, int y)
+
+						Allows this object to be
+						reparented to another X window.
+						This will work properly if the
+						XID is from a BaseWindow or a
+						PopUpWindow, even if the new
+						parent is being displayed by
+						another process.  The x and y
+						arguments allow positioning
+						of the UIDisplay in the new
+						parent window.
+
+----------		------------		-----------
+UIWindow		void focusNextWindow ()
+
+						Sets the input focus to the
+						next window that can accept
+						the input focus.
+
+			void focusPreviousWindow ()
+
+						Sets the input focus to the
+						previous window that can accept
+						the input focus.
+
+			void removeDisplay (UIDisplay&)
+
+						Removes the specified display
+						from the window.
+
+			void reparentXWindow (XID x_window, int x, int y)
+
+                                                Allows this object to be
+                                                reparented to another X window.
+                                                This will work properly if the
+                                                XID is from a BaseWindow or a
+                                                PopUpWindow, even if the new
+                                                parent is being displayed by
+                                                another process.  The x and y
+                                                arguments allow positioning
+                                                of the UIDisplay in the new
+                                                parent window.
+
+			UIDisplay *traverseDisplays (Boolean)
+
+						Traverse the displays that
+						belong to this window.
+
+New Classes - See the header files in $UITHOME/include/c++ for interface info
+-----------------------------------------------------------------------------
+FileChooser		Wrapper for the XView 3.2 FILE_CHOOSER package
+
+CanvasShellDisplay	Wrapper for Sling Shot CANVAS_SHELL package
+CSComponent		Wrapper for Sling Shot RECTOBJ package
+CSArrayTile		Wrapper for Sling Shot ARRAY_TILE package
+CSBag			Wrapper for Sling Shot BAG package
+CSBox			Wrapper for Sling Shot BOX package
+CSCenterBox		Wrapper for Sling Shot CBOX package
+CSClock			Wrapper for Sling Shot CLOCKOBJ package
+CSDrawArea		Wrapper for Sling Shot DRAWAREA package
+CSDrawIcon		Wrapper for Sling Shot DRAWICON package
+CSDrawImage		Wrapper for Sling Shot DRAWIMAGE package
+CSDrawLine		Wrapper for Sling Shot DRAWLINE package
+CSDrawRect		Wrapper for Sling Shot DRAWRECT package
+CSDrawText		Wrapper for Sling Shot DRAWTEXT package
+CSGrip			Wrapper for Sling Shot GRIP package
+CSTempGrip		Wrapper for Sling Shot TEMP_GRIP package
+CSTree			Wrapper for Sling Shot TREE package

@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+#     Copyright (c) 1990-1992 Sun Microsystems, Inc.  All rights reserved.
+#     See LEGAL_NOTICE file for terms of the license.
+#
+export GENERICHOME=/usr/installed2/UITV3/Generic
+export UITHOME=/usr/installed2/UITV3/UIT
+export SLINGSHOT=SLINGSHOT
+export SSPKGHOME=/usr/openwin

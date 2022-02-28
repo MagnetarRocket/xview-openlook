@@ -1,0 +1,19 @@
+/*
+*    SCCS ID: %Z%%M% %I% %E% SMI 
+*
+*    Copyright (c) 1992 Sun Microsystems, Inc.  All rights reserved.
+*    See LEGAL_NOTICE file for terms of the license.
+*/
+
+The chooser_service executable must be in the path that ttsession
+searches for starting handlers.  One way to ensure this is to start
+the ttsession in the same directory as the chooser_service executable
+with the following command:
+
+		ttsession -d $DISPLAY
+
+The ChooserService.types file is compiled into the classing engine.  If
+the ttsession was already running, then a "kill -USR2" needs to be
+sent to the ttsession to force it to re-read the types.
+
+The driver executable is the executable to run to see the example.

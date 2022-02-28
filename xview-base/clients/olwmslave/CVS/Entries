@@ -1,0 +1,24 @@
+/Imakefile/1.2/Sat May 28 10:56:24 2005//
+/README/1.1.1.1/Tue May 24 17:32:27 2005//
+/cmdstream.c/1.1.1.1/Tue May 24 17:32:29 2005//
+/cmdstream.h/1.1.1.1/Tue May 24 17:32:29 2005//
+/help_file.c/1.1.1.1/Tue May 24 17:32:29 2005//
+/helpcmd.h/1.1.1.1/Tue May 24 17:32:29 2005//
+/helprecv.c/1.1.1.1/Tue May 24 17:32:29 2005//
+/helpwin.c/1.1.1.1/Tue May 24 17:32:29 2005//
+/i18n.c/1.2/Sat May 28 10:56:24 2005//
+/i18n.h/1.2/Sat May 28 10:56:24 2005//
+/mem.c/1.1.1.1/Tue May 24 17:32:30 2005//
+/mem.h/1.2/Sat May 28 10:56:24 2005//
+/olwm.info/1.1.1.1/Tue May 24 17:32:30 2005//
+/olwmslave.c/1.1.1.1/Tue May 24 17:32:30 2005//
+/olwmslave.h/1.1.1.1/Tue May 24 17:32:30 2005//
+/olwmslave.man/1.1.1.1/Tue May 24 17:32:33 2005//
+/propscmd.h/1.1.1.1/Tue May 24 17:32:30 2005//
+/propsrecv.c/1.1.1.1/Tue May 24 17:32:30 2005//
+/propssend.c/1.1.1.1/Tue May 24 17:32:30 2005//
+/propswin.c/1.1.1.1/Tue May 24 17:32:33 2005//
+/saber.suppress/1.1.1.1/Tue May 24 17:32:33 2005//
+/window.info/1.1.1.1/Tue May 24 17:32:33 2005//
+/workspace.info/1.1.1.1/Tue May 24 17:32:33 2005//
+D

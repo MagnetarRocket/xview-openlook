@@ -1,0 +1,519 @@
+*
+*     Copyright (c) 1990-1993 Sun Microsystems, Inc.  All rights reserved.
+*     See LEGAL_NOTICE file for terms of the license.
+*
+The User Interface Toolkit requires OpenWindows V3 to be installed
+and OPENWINHOME to be defined.  In order to create and use the guic (Guide to
+UIC) utility, Developer's GUIDE 3.0 must be installed and GUIDEHOME must
+defined.  The UIT can be used under SunOS 4.X or SVR4.
+
+Do the following to create the UIT library:
+
+	setenv GENERICHOME <current_dir>/Generic
+	setenv UITHOME <current_dir>/UIT 
+
+If you have the Sling Shot 2.0 packages then the following environment variables
+need to be set to compile the Sling Shot wrappers:
+
+	setenv SSPKGHOME <Sling Shot home directory>
+	setenv SLINGSHOT SLINGSHOT
+
+The UIT Sling Shot wrapper objects are placed in the UICSS library:
+
+	libUICSS.so.*
+	libUICSS.so (a link to libUICSS.so.*)
+	libUICSS.a
+
+When compiling, the Sling Shot 2.0 include directory must be a specified
+include path.  Executables using a UIC library that has the Sling Shot package
+wrappers enabled MUST be linked with the UICSS library and the Sling Shot
+2.0 package library.
+
+If you have makedepend and are using SunOS 4.X, type:
+	
+	make world
+
+	NOTE: Using the makedepend version of the UIT makefile
+	      requires the CCINC environment variable to be pointing
+	      to your C++ include directory.
+
+If you are using SVR4, type:
+
+	make world_svr4
+
+	NOTE: In order to use the UIT in SVR4, you must put $UITHOME/lib
+	      into the LD_LIBRARY_PATH environment variable.
+
+If you do not have makedepend, type:
+
+	make world_no_makedepend
+
+If you want to create a version that does not compile use the XVPS library	
+in SunOS 4.X, type:
+
+	make world_NO_XVPS
+
+If you are using SVR4, type:
+
+	make world_svr4_NO_XVPS
+
+If a version is created without XVPS, then the NO_XVPS symbol must be
+defined (via "-DNO_XVPS") when compiling with UIT header files.  Also
+when generating code from Developer's GUIDE, use the guic.no_xvps
+(or guic.svr4.no_xvps) utility instead of the standard guic utility.
+
+It is good practice (although not always required) to define the symbols
+SYSV and SVR4 when compiling code in SVR4.
+
+The file "ENVIRONMENT" can be used to set the GENERICHOME and
+UITHOME environment variables (with the "source" command).  Only the UITHOME
+environment actually needs to be defined when compiling and linking with
+the UIT headers and libraries.
+
+After creating everything, put $UITHOME/bin in your path to access
+"guic" (or "guic.no_xvps" or "guic.svr4" or "guic.svr4.no_xvps").
+Both shareable and regular object libraries are created in $UITHOME/lib:
+
+		libUIC.so.*
+		libUIC.so (a link to libUIC.so.*)
+		libUICSS.so.*
+		libUICSS.so (a link to libUICSS.so.*)
+		libUIC.a
+		libUICSS.a
+
+To compile a C++ file with the UIT header files without using the
+Sling Shot wrappers, the following flags should be used:
+
+	-I$(UITHOME)/include/c++ -I$(OPENWINHOME)/include
+
+With the Sling Shot wrappers, use the following:
+
+	-I$(UITHOME)/include/c++ -I$(OPENWINHOME)/include -I$(SSPKGHOME)/include
+
+If the UIT was built without the XVPS library, add the "-DNO_XVPS" flag
+to the compile command.
+
+To link with the UIT libraries, without using the Sling Shot wrappers,
+in SunOS 4.X, the following flags should be used:
+
+	-L$(UITHOME)/lib -L$(OPENWINHOME)/lib
+	-lUIC -lxvps -lxview -lolgx -lX -lcps -lm -lwire
+
+With the Sling Shot wrappers in SunOS 4.X, us the following:
+
+	-L$(UITHOME)/lib -L$(OPENWINHOME)/lib -L$(SSPKGHOME)/lib
+	-lUIC -lUICSS
+	-lxvps -lxview -lolgx -lX -lcps -lm -lwire
+
+Without the Sling Shot wrappers in SVR4 use the following flags:
+
+	-L$(UITHOME)/lib -L$(OPENWINHOME)/lib
+	-lUIC -lxvps -lxview -lolgx -lX -lcps -lm -lwire -lsocket -lnsl
+
+With the Sling Shot wrappers in SVR4, use the following:
+
+	-L$(UITHOME)/lib -L$(OPENWINHOME)/lib -L$(SSPKGHOME)/lib
+	-lUIC -lUICSS
+	-lsspkg -lxvps -lxview -lolgx -lX -lcps -lm -lwire -lsocket -lnsl
+
+If the UIT was built without the XVPS library, omit the "-lxvps", "-lcps"
+and "-lwire" flags.
+
+NOTE: The components can now be compiled with g++!  Use "make world_g++",
+      "make world_g++_NO_XVPS", "make world_g++_svr4", or
+      "make world_g++_svr4_NO_XVPS" depending on the flavor of UIT desired.
+      Note that the examples have NOT been rewritten to compile under g++.
+      If you convert any particular example, please feel free to send the
+      code to "soloway@dawntech.com".
+
+The following is a general description of the directory hierarchy:
+
+	Generic -- Directory structure for the Generic class library.
+
+		   The Generic class library is a set of general
+		   purpose C++ classes for various data structures.
+
+	UIT	-- Directory structure for the User Interface Toolkit.
+
+		   The User Interface Toolkit comprises of two
+		   components:
+
+			UIC	-- User Interface Components
+
+				   A library of C++ classes layered on
+				   top of the XView Toolkit.
+
+			guic	-- Guide to UIC
+
+				   A utility to convert GIL files
+				   generated from Developer's GUIDE to
+				   code using the UIC.  The guic source
+				   code is not available, only the binaries
+				   are provided. 
+
+				   guic, guic.no_xvps, guic.svr4 and
+				   guic.svr4.no_xvps are the guic binaries
+				   provided with this release.
+
+			doc	-- UIT Documentation
+
+				   Contains the manual and roadmap for the
+				   UIT.  Features not documented in the
+				   manual or in the roadmap are described
+				   in the "new-features.txt" file.
+
+Examples of some of the UIT features are provided in the $UITHOME/src/examples
+directory.  To make the examples using SunOS 4.X, type:
+
+	make examples
+
+In SVR4 type:
+
+	make examples_svr4
+
+Mail UIT bug reports, questions about the UIT, suggestions for new features 
+in the UIT, and subscription requests for future UIT announcements to the 
+following e-mail address: 
+ 
+	soloway@dawntech.com
+ 
+Patches, useful additions and interesting examples are welcome as long as
+they are not copyrighted.
+
+The following files are included in this distribution:
+
+a ./ 0 tape blocks
+a ./ENVIRONMENT 1 tape blocks
+a ./Generic/ 0 tape blocks
+a ./Generic/include/ 0 tape blocks
+a ./Generic/include/Boolean.h 2 tape blocks
+a ./Generic/include/Generic.h 2 tape blocks
+a ./Generic/include/GenericHash.h 13 tape blocks
+a ./Generic/include/GenericList.h 11 tape blocks
+a ./Generic/lib/ 0 tape blocks
+a ./Generic/src/ 0 tape blocks
+a ./Generic/src/Generic.cc 2 tape blocks
+a ./Generic/src/Makefile.svr4 3 tape blocks
+a ./Generic/src/GenericHash.cc 45 tape blocks
+a ./Generic/src/GenericList.cc 29 tape blocks
+a ./Generic/src/Makefile 3 tape blocks
+a ./Generic/src/Makefile.g++ 3 tape blocks
+a ./Generic/src/Makefile.svr4.g++ 3 tape blocks
+a ./Generic/test/ 0 tape blocks
+a ./LEGAL_NOTICE 3 tape blocks
+a ./Makefile 3 tape blocks
+a ./README 66 tape blocks
+a ./UIT/ 0 tape blocks
+a ./UIT/doc/ 0 tape blocks
+a ./UIT/doc/UITRoadmap.ps 123 tape blocks
+a ./UIT/doc/UITManual.I.ps 2476 tape blocks
+a ./UIT/doc/UITManual.ps 2476 tape blocks
+a ./UIT/doc/UITRoadmap.small.ps 123 tape blocks
+a ./UIT/doc/UITRoadmap.quad3.ps 123 tape blocks
+a ./UIT/doc/UITRoadmap.quad1.ps 123 tape blocks
+a ./UIT/doc/UITRoadmap.quad2.ps 123 tape blocks
+a ./UIT/doc/UITRoadmap.quad4.ps 123 tape blocks
+a ./UIT/doc/new-features.txt 16 tape blocks
+a ./UIT/bin/ 0 tape blocks
+a ./UIT/bin/guic 576 tape blocks
+a ./UIT/bin/guic.no_xvps 576 tape blocks
+a ./UIT/include/ 0 tape blocks
+a ./UIT/include/c++/ 0 tape blocks
+a ./UIT/include/c++/AlphanumericInput.h 5 tape blocks
+a ./UIT/include/c++/TextDisplay.h 7 tape blocks
+a ./UIT/include/c++/Button.h 9 tape blocks
+a ./UIT/include/c++/private/ 0 tape blocks
+a ./UIT/include/c++/private/UICPrivateTypes.h 2 tape blocks
+a ./UIT/include/c++/private/postscript_canvas.h 6 tape blocks
+a ./UIT/include/c++/CharacterFont.h 5 tape blocks
+a ./UIT/include/c++/CheckBoxChoice.h 4 tape blocks
+a ./UIT/include/c++/ChoiceMenu.h 6 tape blocks
+a ./UIT/include/c++/ColorMap.h 13 tape blocks
+a ./UIT/include/c++/CommandMenu.h 4 tape blocks
+a ./UIT/include/c++/HotRegion.h 17 tape blocks
+a ./UIT/include/c++/CSClock.h 7 tape blocks
+a ./UIT/include/c++/DropTarget.h 9 tape blocks
+a ./UIT/include/c++/Scroller.h 20 tape blocks
+a ./UIT/include/c++/Image.h 11 tape blocks
+a ./UIT/include/c++/UICTypes.h 7 tape blocks
+a ./UIT/include/c++/MultilineInput.h 5 tape blocks
+a ./UIT/include/c++/NoticePrompt.h 17 tape blocks
+a ./UIT/include/c++/CSGrip.h 14 tape blocks
+a ./UIT/include/c++/UIInputTextItem.h 11 tape blocks
+a ./UIT/include/c++/PopUpWindow.h 5 tape blocks
+a ./UIT/include/c++/UIChoice.h 18 tape blocks
+a ./UIT/include/c++/Gauge.h 15 tape blocks
+a ./UIT/include/c++/UIMenu.h 34 tape blocks
+a ./UIT/include/c++/StackChoice.h 4 tape blocks
+a ./UIT/include/c++/CSComponent.h 35 tape blocks
+a ./UIT/include/c++/TextItem.h 4 tape blocks
+a ./UIT/include/c++/ToggleChoice.h 3 tape blocks
+a ./UIT/include/c++/Notifier.h 5 tape blocks
+a ./UIT/include/c++/BaseWindow.h 27 tape blocks
+a ./UIT/include/c++/CSDrawIcon.h 15 tape blocks
+a ./UIT/include/c++/ListChoice.h 24 tape blocks
+a ./UIT/include/c++/NumericInput.h 8 tape blocks
+a ./UIT/include/c++/Slider.h 10 tape blocks
+a ./UIT/include/c++/TermDisplay.h 4 tape blocks
+a ./UIT/include/c++/ScrollChoice.h symbolic link to ./ListChoice.h
+a ./UIT/include/c++/TTYDisplay.h 5 tape blocks
+a ./UIT/include/c++/UIComponent.h 26 tape blocks
+a ./UIT/include/c++/CanvasShellDisplay.h 41 tape blocks
+a ./UIT/include/c++/CSBag.h 4 tape blocks
+a ./UIT/include/c++/CSArrayTile.h 13 tape blocks
+a ./UIT/include/c++/FileChooser.h 11 tape blocks
+a ./UIT/include/c++/CSBox.h 4 tape blocks
+a ./UIT/include/c++/CSCenterBox.h 3 tape blocks
+a ./UIT/include/c++/ComponentDisplay.h 62 tape blocks
+a ./UIT/include/c++/CSDrawArea.h 6 tape blocks
+a ./UIT/include/c++/UIDisplay.h 10 tape blocks
+a ./UIT/include/c++/CSDrawImage.h 6 tape blocks
+a ./UIT/include/c++/CSDrawLine.h 8 tape blocks
+a ./UIT/include/c++/CSDrawRect.h 5 tape blocks
+a ./UIT/include/c++/CSDrawText.h 7 tape blocks
+a ./UIT/include/c++/UIObject.h 117 tape blocks
+a ./UIT/include/c++/CSTempGrip.h 3 tape blocks
+a ./UIT/include/c++/CSTree.h 7 tape blocks
+a ./UIT/include/c++/ComponentGroup.h 24 tape blocks
+a ./UIT/include/c++/UIWindow.h 21 tape blocks
+a ./UIT/lib/ 0 tape blocks
+a ./UIT/src/ 0 tape blocks
+a ./UIT/src/UIC/ 0 tape blocks
+a ./UIT/src/UIC/Button.cc 13 tape blocks
+a ./UIT/src/UIC/ColorMap.cc 44 tape blocks
+a ./UIT/src/UIC/Make-ss.OBJECTS 1 tape blocks
+a ./UIT/src/UIC/Gauge.cc 9 tape blocks
+a ./UIT/src/UIC/Makefile 5 tape blocks
+a ./UIT/src/UIC/Makefile.NO_XVPS 15 tape blocks
+a ./UIT/src/UIC/Image.cc 6 tape blocks
+a ./UIT/src/UIC/AlphanumericInput.cc 10 tape blocks
+a ./UIT/src/UIC/DropTarget.cc 17 tape blocks
+a ./UIT/src/UIC/CharacterFont.cc 8 tape blocks
+a ./UIT/src/UIC/CheckBoxChoice.cc 6 tape blocks
+a ./UIT/src/UIC/ChoiceMenu.cc 28 tape blocks
+a ./UIT/src/UIC/CommandMenu.cc 15 tape blocks
+a ./UIT/src/UIC/CSArrayTile.cc 20 tape blocks
+a ./UIT/src/UIC/CSBag.cc 5 tape blocks
+a ./UIT/src/UIC/InputEvent.cc 5 tape blocks
+a ./UIT/src/UIC/HotRegion.cc 8 tape blocks
+a ./UIT/src/UIC/Makefile.svr4 15 tape blocks
+a ./UIT/src/UIC/ListChoice.cc 125 tape blocks
+a ./UIT/src/UIC/UIObject.cc 150 tape blocks
+a ./UIT/src/UIC/cc.cc 47 tape blocks
+a ./UIT/src/UIC/MultilineInput.cc 11 tape blocks
+a ./UIT/src/UIC/NoticePrompt.cc 61 tape blocks
+a ./UIT/src/UIC/Notifier.cc 2 tape blocks
+a ./UIT/src/UIC/Makefile.no_makedepend 15 tape blocks
+a ./UIT/src/UIC/Scroller.cc 14 tape blocks
+a ./UIT/src/UIC/Slider.cc 16 tape blocks
+a ./UIT/src/UIC/StackChoice.cc 7 tape blocks
+a ./UIT/src/UIC/Makefile.svr4.NO_XVPS 15 tape blocks
+a ./UIT/src/UIC/TextItem.cc 6 tape blocks
+a ./UIT/src/UIC/ToggleChoice.cc 6 tape blocks
+a ./UIT/src/UIC/NumericInput.cc 9 tape blocks
+a ./UIT/src/UIC/CSBox.cc 5 tape blocks
+a ./UIT/src/UIC/CSCenterBox.cc 4 tape blocks
+a ./UIT/src/UIC/CSDrawArea.cc 6 tape blocks
+a ./UIT/src/UIC/CSDrawLine.cc 6 tape blocks
+a ./UIT/src/UIC/CSDrawRect.cc 5 tape blocks
+a ./UIT/src/UIC/UIComponent.cc 58 tape blocks
+a ./UIT/src/UIC/UIInputTextItem.cc 13 tape blocks
+a ./UIT/src/UIC/CSDrawText.cc 10 tape blocks
+a ./UIT/src/UIC/CSTempGrip.cc 4 tape blocks
+a ./UIT/src/UIC/Makefile.g++ 15 tape blocks
+a ./UIT/src/UIC/Makefile.g++.NO_XVPS 15 tape blocks
+a ./UIT/src/UIC/Makefile.g++.svr4 15 tape blocks
+a ./UIT/src/UIC/Makefile.g++.NO_XVPS 15 tape blocks
+a ./UIT/src/UIC/BaseWindow.cc 35 tape blocks
+a ./UIT/src/UIC/CSClock.cc 7 tape blocks
+a ./UIT/src/UIC/CSComponent.cc 47 tape blocks
+a ./UIT/src/UIC/CSDrawIcon.cc 13 tape blocks
+a ./UIT/src/UIC/CSDrawImage.cc 7 tape blocks
+a ./UIT/src/UIC/CSGrip.cc 14 tape blocks
+a ./UIT/src/UIC/CSTree.cc 13 tape blocks
+a ./UIT/src/UIC/CanvasShellDisplay.cc 68 tape blocks
+a ./UIT/src/UIC/ComponentDisplay.cc 119 tape blocks
+a ./UIT/src/UIC/ComponentGroup.cc 64 tape blocks
+a ./UIT/src/UIC/FileChooser.cc 16 tape blocks
+a ./UIT/src/UIC/PopUpWindow.cc 18 tape blocks
+a ./UIT/src/UIC/TTYDisplay.cc 17 tape blocks
+a ./UIT/src/UIC/TermDisplay.cc 15 tape blocks
+a ./UIT/src/UIC/TextDisplay.cc 12 tape blocks
+a ./UIT/src/UIC/UIChoice.cc 92 tape blocks
+a ./UIT/src/UIC/UIDisplay.cc 11 tape blocks
+a ./UIT/src/UIC/UIMenu.cc 119 tape blocks
+a ./UIT/src/UIC/UIWindow.cc 9 tape blocks
+a ./UIT/src/examples/ 0 tape blocks
+a ./UIT/src/examples/ColorMaps/ 0 tape blocks
+a ./UIT/src/examples/ColorMaps/Display/ 0 tape blocks
+a ./UIT/src/examples/ColorMaps/Display/Makefile 2 tape blocks
+a ./UIT/src/examples/ColorMaps/Display/display.cc 4 tape blocks
+a ./UIT/src/examples/ColorMaps/Display/Makefile.NO_XVPS 2 tape blocks
+a ./UIT/src/examples/ColorMaps/Display/Makefile.svr4 2 tape blocks
+a ./UIT/src/examples/ColorMaps/Display/Makefile.svr4.NO_XVPS 2 tape blocks
+a ./UIT/src/examples/ColorMaps/Display/Makefile.g++.NO_XVPS 2 tape blocks
+a ./UIT/src/examples/ColorMaps/Worms/ 0 tape blocks
+a ./UIT/src/examples/ColorMaps/Worms/Makefile 2 tape blocks
+a ./UIT/src/examples/ColorMaps/Worms/worms.cc 9 tape blocks
+a ./UIT/src/examples/ColorMaps/Worms/Makefile.NO_XVPS 1 tape blocks
+a ./UIT/src/examples/ColorMaps/Worms/Makefile.svr4 2 tape blocks
+a ./UIT/src/examples/ColorMaps/Worms/Makefile.svr4.NO_XVPS 2 tape blocks
+a ./UIT/src/examples/ColorMaps/Worms/Makefile.g++.NO_XVPS 2 tape blocks
+a ./UIT/src/examples/DragAndDrop/ 0 tape blocks
+a ./UIT/src/examples/DragAndDrop/Panel/ 0 tape blocks
+a ./UIT/src/examples/DragAndDrop/Panel/Makefile 2 tape blocks
+a ./UIT/src/examples/DragAndDrop/Panel/drag_source.cc 4 tape blocks
+a ./UIT/src/examples/DragAndDrop/Panel/drop.icon 5 tape blocks
+a ./UIT/src/examples/DragAndDrop/Panel/drop_target.cc 3 tape blocks
+a ./UIT/src/examples/DragAndDrop/Panel/text_data.icon 5 tape blocks
+a ./UIT/src/examples/DragAndDrop/Panel/Makefile.svr4 2 tape blocks
+a ./UIT/src/examples/DragAndDrop/Canvas/ 0 tape blocks
+a ./UIT/src/examples/DragAndDrop/Canvas/ArrowHotRegion.h 4 tape blocks
+a ./UIT/src/examples/DragAndDrop/Canvas/Bullseye.h 23 tape blocks
+a ./UIT/src/examples/DragAndDrop/Canvas/Makefile 2 tape blocks
+a ./UIT/src/examples/DragAndDrop/Canvas/arrow.bm 8 tape blocks
+a ./UIT/src/examples/DragAndDrop/Canvas/bullseye.bm 8 tape blocks
+a ./UIT/src/examples/DragAndDrop/Canvas/drag_source.cc 7 tape blocks
+a ./UIT/src/examples/DragAndDrop/Canvas/drop.icon 5 tape blocks
+a ./UIT/src/examples/DragAndDrop/Canvas/drop_target.cc 5 tape blocks
+a ./UIT/src/examples/DragAndDrop/Canvas/inverse_bullseye.bm 8 tape blocks
+a ./UIT/src/examples/DragAndDrop/Canvas/Makefile.svr4 2 tape blocks
+a ./UIT/src/examples/DragAndDrop/PrintTool/ 0 tape blocks
+a ./UIT/src/examples/DragAndDrop/PrintTool/ArrowHotRegion.h 2 tape blocks
+a ./UIT/src/examples/DragAndDrop/PrintTool/Makefile 1 tape blocks
+a ./UIT/src/examples/DragAndDrop/PrintTool/Makefile.svr4 2 tape blocks
+a ./UIT/src/examples/DragAndDrop/PrintTool/arrow.bm 8 tape blocks
+a ./UIT/src/examples/DragAndDrop/PrintTool/drag_source.cc 10 tape blocks
+a ./UIT/src/examples/DragAndDrop/PrintTool/drop.icon 5 tape blocks
+a ./UIT/src/examples/HotRegions/ 0 tape blocks
+a ./UIT/src/examples/HotRegions/Panel/ 0 tape blocks
+a ./UIT/src/examples/HotRegions/Panel/Makefile 3 tape blocks
+a ./UIT/src/examples/HotRegions/Panel/panel_stubs.cc 4 tape blocks
+a ./UIT/src/examples/HotRegions/Panel/panel_ui.cc 5 tape blocks
+a ./UIT/src/examples/HotRegions/Panel/Makefile.svr4 3 tape blocks
+a ./UIT/src/examples/HotRegions/Canvas/ 0 tape blocks
+a ./UIT/src/examples/HotRegions/Canvas/PostScript/ 0 tape blocks
+a ./UIT/src/examples/HotRegions/Canvas/PostScript/Makefile 3 tape blocks
+a ./UIT/src/examples/HotRegions/Canvas/PostScript/ps_stubs.cc 3 tape blocks
+a ./UIT/src/examples/HotRegions/Canvas/PostScript/ps_ui.cc 4 tape blocks
+a ./UIT/src/examples/HotRegions/Canvas/PostScript/Makefile.svr4 3 tape blocks
+a ./UIT/src/examples/HotRegions/Canvas/Xlib/ 0 tape blocks
+a ./UIT/src/examples/HotRegions/Canvas/Xlib/Makefile 3 tape blocks
+a ./UIT/src/examples/HotRegions/Canvas/Xlib/xlib_stubs.cc 2 tape blocks
+a ./UIT/src/examples/HotRegions/Canvas/Xlib/xlib_ui.cc 4 tape blocks
+a ./UIT/src/examples/HotRegions/Canvas/Xlib/Makefile.NO_XVPS 3 tape blocks
+a ./UIT/src/examples/HotRegions/Canvas/Xlib/Makefile.svr4 3 tape blocks
+a ./UIT/src/examples/HotRegions/Canvas/Xlib/Makefile.svr4.NO_XVPS 3 tape blocks
+a ./UIT/src/examples/HotRegions/Canvas/Xlib/Makefile.g++.NO_XVPS 3 tape blocks
+a ./UIT/src/examples/Images/ 0 tape blocks
+a ./UIT/src/examples/Images/List/ 0 tape blocks
+a ./UIT/src/examples/Images/List/Makefile 1 tape blocks
+a ./UIT/src/examples/Images/List/list.cc 4 tape blocks
+a ./UIT/src/examples/Images/List/Makefile.NO_XVPS 1 tape blocks
+a ./UIT/src/examples/Images/List/Makefile.svr4 2 tape blocks
+a ./UIT/src/examples/Images/List/Makefile.svr4.NO_XVPS 2 tape blocks
+a ./UIT/src/examples/Images/List/Makefile.g++.NO_XVPS 2 tape blocks
+a ./UIT/src/examples/Images/Choice/ 0 tape blocks
+a ./UIT/src/examples/Images/Choice/Makefile 2 tape blocks
+a ./UIT/src/examples/Images/Choice/choice.cc 3 tape blocks
+a ./UIT/src/examples/Images/Choice/Makefile.NO_XVPS 1 tape blocks
+a ./UIT/src/examples/Images/Choice/Makefile.svr4 2 tape blocks
+a ./UIT/src/examples/Images/Choice/Makefile.svr4.NO_XVPS 2 tape blocks
+a ./UIT/src/examples/Images/Choice/Makefile.g++.NO_XVPS 2 tape blocks
+a ./UIT/src/examples/Makefile 6 tape blocks
+a ./UIT/src/examples/Menus/ 0 tape blocks
+a ./UIT/src/examples/Menus/menus_ui.cc 10 tape blocks
+a ./UIT/src/examples/Menus/Makefile 3 tape blocks
+a ./UIT/src/examples/Menus/Makefile.NO_XVPS 3 tape blocks
+a ./UIT/src/examples/Menus/Makefile.svr4 3 tape blocks
+a ./UIT/src/examples/Menus/Makefile.svr4.NO_XVPS 3 tape blocks
+a ./UIT/src/examples/Menus/Makefile.g++.NO_XVPS 3 tape blocks
+a ./UIT/src/examples/NewUITClasses/ 0 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/ 0 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/ChooserService.types 2 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/ChooserService_opnums.h 1 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/ColorChooserButton.cc 10 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/ColorChooserButton.h 2 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/FileChooserButton.cc 13 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/FileChooserButton.h 3 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/Makefile 2 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/Makefile.ccb 1 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/Makefile.ccb.svr4 1 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/Makefile.cs 3 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/Makefile.cs.svr4 3 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/Makefile.driver 2 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/Makefile.driver.svr4 2 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/Makefile.fcb 1 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/Makefile.fcb.svr4 1 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/README 2 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/ccb_handler.cc 2 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/chooser_service.c 17 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/driver_ui.cc 5 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/fcb_handler.cc 2 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/gcc.c 16 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/gcc.h 4 tape blocks
+a ./UIT/src/examples/NewUITClasses/Choosers/gcc_ui.h 5 tape blocks
+a ./UIT/src/examples/NewUITClasses/PropertiesWindow/ 0 tape blocks
+a ./UIT/src/examples/NewUITClasses/PropertiesWindow/Makefile 2 tape blocks
+a ./UIT/src/examples/NewUITClasses/PropertiesWindow/Makefile.NO_XVPS 2 tape blocks
+a ./UIT/src/examples/NewUITClasses/PropertiesWindow/Makefile.svr4 2 tape blocks
+a ./UIT/src/examples/NewUITClasses/PropertiesWindow/Makefile.svr4.NO_XVPS 2 tape blocks
+a ./UIT/src/examples/NewUITClasses/PropertiesWindow/Makefile.g++.NO_XVPS 2 tape blocks
+a ./UIT/src/examples/NewUITClasses/PropertiesWindow/PropertiesWindow.cc 5 tape blocks
+a ./UIT/src/examples/NewUITClasses/PropertiesWindow/PropertiesWindow.h 7 tape blocks
+a ./UIT/src/examples/NewUITClasses/PropertiesWindow/driver.cc 4 tape blocks
+a ./UIT/src/examples/NotifyTargets/ 0 tape blocks
+a ./UIT/src/examples/NotifyTargets/target_ui.cc 6 tape blocks
+a ./UIT/src/examples/NotifyTargets/Makefile 3 tape blocks
+a ./UIT/src/examples/NotifyTargets/Makefile.NO_XVPS 3 tape blocks
+a ./UIT/src/examples/NotifyTargets/Makefile.svr4 2 tape blocks
+a ./UIT/src/examples/NotifyTargets/Makefile.svr4.NO_XVPS 3 tape blocks
+a ./UIT/src/examples/NotifyTargets/Makefile.g++.NO_XVPS 3 tape blocks
+a ./UIT/src/examples/OverviewExample/ 0 tape blocks
+a ./UIT/src/examples/OverviewExample/entries.G 10 tape blocks
+a ./UIT/src/examples/PostScript/ 0 tape blocks
+a ./UIT/src/examples/PostScript/ImageButton/ 0 tape blocks
+a ./UIT/src/examples/PostScript/ImageButton/ImageButton.h 15 tape blocks
+a ./UIT/src/examples/PostScript/ImageButton/Makefile 3 tape blocks
+a ./UIT/src/examples/PostScript/ImageButton/driver_stubs.cc 2 tape blocks
+a ./UIT/src/examples/PostScript/ImageButton/driver_ui.cc 3 tape blocks
+a ./UIT/src/examples/PostScript/ImageButton/Makefile.svr4 3 tape blocks
+a ./UIT/src/examples/PostScript/Circles/ 0 tape blocks
+a ./UIT/src/examples/PostScript/Circles/Makefile 3 tape blocks
+a ./UIT/src/examples/PostScript/Circles/circles_ui.cc 3 tape blocks
+a ./UIT/src/examples/PostScript/Circles/circles_stubs.cc 3 tape blocks
+a ./UIT/src/examples/PostScript/Circles/Makefile.svr4 3 tape blocks
+a ./UIT/src/examples/Windows/ 0 tape blocks
+a ./UIT/src/examples/Windows/windows_ui.cc 8 tape blocks
+a ./UIT/src/examples/Windows/Makefile 3 tape blocks
+a ./UIT/src/examples/Windows/Makefile.NO_XVPS 3 tape blocks
+a ./UIT/src/examples/Windows/Makefile.svr4 3 tape blocks
+a ./UIT/src/examples/Windows/Makefile.svr4.NO_XVPS 3 tape blocks
+a ./UIT/src/examples/Windows/Makefile.g++.NO_XVPS 3 tape blocks
+a ./UIT/src/examples/SlingShot/ 0 tape blocks
+a ./UIT/src/examples/SlingShot/CSArrayTile/ 0 tape blocks
+a ./UIT/src/examples/SlingShot/CSArrayTile/Makefile 2 tape blocks
+a ./UIT/src/examples/SlingShot/CSArrayTile/Makefile.NO_XVPS 2 tape blocks
+a ./UIT/src/examples/SlingShot/CSArrayTile/Makefile.svr4 2 tape blocks
+a ./UIT/src/examples/SlingShot/CSArrayTile/Makefile.svr4.NO_XVPS 2 tape blocks
+a ./UIT/src/examples/SlingShot/CSArrayTile/Makefile.g++.NO_XVPS 2 tape blocks
+a ./UIT/src/examples/SlingShot/CSArrayTile/array.cc 5 tape blocks
+a ./UIT/src/examples/SlingShot/CSDrawImage/ 0 tape blocks
+a ./UIT/src/examples/SlingShot/CSDrawImage/Makefile 2 tape blocks
+a ./UIT/src/examples/SlingShot/CSDrawImage/Makefile.NO_XVPS 2 tape blocks
+a ./UIT/src/examples/SlingShot/CSDrawImage/Makefile.svr4 2 tape blocks
+a ./UIT/src/examples/SlingShot/CSDrawImage/Makefile.svr4.NO_XVPS 2 tape blocks
+a ./UIT/src/examples/SlingShot/CSDrawImage/Makefile.g++.NO_XVPS 2 tape blocks
+a ./UIT/src/examples/SlingShot/CSDrawImage/cmdtool.icon 4 tape blocks
+a ./UIT/src/examples/SlingShot/CSDrawImage/drawimage_stubs.cc 2 tape blocks
+a ./UIT/src/examples/SlingShot/CSDrawImage/drawimage_ui.cc 3 tape blocks
+a ./UIT/src/examples/SlingShot/CSDrawText/ 0 tape blocks
+a ./UIT/src/examples/SlingShot/CSDrawText/Makefile 2 tape blocks
+a ./UIT/src/examples/SlingShot/CSDrawText/drawtext_stubs.cc 1 tape blocks
+a ./UIT/src/examples/SlingShot/CSDrawText/drawtext_ui.cc 3 tape blocks
+a ./UIT/src/examples/SlingShot/CSDrawText/Makefile.svr4 2 tape blocks
+a ./UIT/src/examples/SlingShot/CSDrawText/Makefile.NO_XVPS 2 tape blocks
+a ./UIT/src/examples/SlingShot/CSDrawText/Makefile.svr4.NO_XVPS 2 tape blocks
+a ./UIT/src/examples/SlingShot/CSDrawText/Makefile.g++.NO_XVPS 2 tape blocks
+a ./UIT/src/examples/SlingShot/Makefile 2 tape blocks
+a ./patchlevel.h 1 tape blocks

@@ -1,0 +1,2125 @@
+%!
+%%BoundingBox: (atend)
+%%Pages: (atend)
+%%DocumentFonts: (atend)
+%%EndComments
+%
+% FrameMaker PostScript Prolog 3.0, for use with FrameMaker 3.0
+% Copyright (c) 1986,87,89,90,91 by Frame Technology Corporation.
+% All rights reserved.
+%
+% Known Problems:
+%	Due to bugs in Transcript, the 'PS-Adobe-' is omitted from line 1
+/FMversion (3.0) def 
+% Set up Color vs. Black-and-White
+	/FMPrintInColor systemdict /colorimage known
+		systemdict /currentcolortransfer known or def
+% Uncomment this line to force b&w on color printer
+       /FMPrintInColor false def
+/FrameDict 195 dict def 
+systemdict /errordict known not {/errordict 10 dict def
+		errordict /rangecheck {stop} put} if
+% The readline in 23.0 doesn't recognize cr's as nl's on AppleTalk
+FrameDict /tmprangecheck errordict /rangecheck get put 
+errordict /rangecheck {FrameDict /bug true put} put 
+FrameDict /bug false put 
+mark 
+% Some PS machines read past the CR, so keep the following 3 lines together!
+currentfile 5 string readline
+00
+0000000000
+cleartomark 
+errordict /rangecheck FrameDict /tmprangecheck get put 
+FrameDict /bug get { 
+	/readline {
+		/gstring exch def
+		/gfile exch def
+		/gindex 0 def
+		{
+			gfile read pop 
+			dup 10 eq {exit} if 
+			dup 13 eq {exit} if 
+			gstring exch gindex exch put 
+			/gindex gindex 1 add def 
+		} loop
+		pop 
+		gstring 0 gindex getinterval true 
+		} def
+	} if
+/FMVERSION {
+	FMversion ne {
+		/Times-Roman findfont 18 scalefont setfont
+		100 100 moveto
+		(FrameMaker version does not match postscript_prolog!)
+		dup =
+		show showpage
+		} if
+	} def 
+/FMLOCAL {
+	FrameDict begin
+	0 def 
+	end 
+	} def 
+	/gstring FMLOCAL
+	/gfile FMLOCAL
+	/gindex FMLOCAL
+	/orgxfer FMLOCAL
+	/orgproc FMLOCAL
+	/organgle FMLOCAL
+	/orgfreq FMLOCAL
+	/yscale FMLOCAL
+	/xscale FMLOCAL
+	/manualfeed FMLOCAL
+	/paperheight FMLOCAL
+	/paperwidth FMLOCAL
+/FMDOCUMENT { 
+	array /FMfonts exch def 
+	/#copies exch def
+	FrameDict begin
+	0 ne dup {setmanualfeed} if
+	/manualfeed exch def
+	/paperheight exch def
+	/paperwidth exch def
+	/yscale exch def
+	/xscale exch def
+	currenttransfer cvlit /orgxfer exch def
+	currentscreen cvlit /orgproc exch def
+	/organgle exch def /orgfreq exch def
+	setpapername 
+	manualfeed {true} {papersize} ifelse 
+	{manualpapersize} {false} ifelse 
+	{desperatepapersize} if
+	end 
+	} def 
+	/pagesave FMLOCAL
+	/orgmatrix FMLOCAL
+	/landscape FMLOCAL
+/FMBEGINPAGE { 
+	FrameDict begin 
+	/pagesave save def
+	3.86 setmiterlimit
+	/landscape exch 0 ne def
+	landscape { 
+		90 rotate 0 exch neg translate pop 
+		}
+		{pop pop}
+		ifelse
+	xscale yscale scale
+	/orgmatrix matrix def
+	gsave 
+	} def 
+/FMENDPAGE {
+	grestore 
+	pagesave restore
+	end 
+	showpage
+	} def 
+/FMFONTDEFINE { 
+	FrameDict begin
+	findfont 
+	ReEncode 
+	1 index exch 
+	definefont 
+	FMfonts 3 1 roll 
+	put
+	end 
+	} def 
+/FMFILLS {
+	FrameDict begin
+	array /fillvals exch def
+	end 
+	} def 
+/FMFILL {
+	FrameDict begin
+	 fillvals 3 1 roll put
+	end 
+	} def 
+/FMNORMALIZEGRAPHICS { 
+	newpath
+	0.0 0.0 moveto
+	1 setlinewidth
+	0 setlinecap
+	0 0 0 sethsbcolor
+	0 setgray 
+	} bind def
+	/fx FMLOCAL
+	/fy FMLOCAL
+	/fh FMLOCAL
+	/fw FMLOCAL
+	/llx FMLOCAL
+	/lly FMLOCAL
+	/urx FMLOCAL
+	/ury FMLOCAL
+/FMBEGINEPSF { 
+	end 
+	/FMEPSF save def 
+	/showpage {} def 
+	FMNORMALIZEGRAPHICS 
+	[/fy /fx /fh /fw /ury /urx /lly /llx] {exch def} forall 
+	fx fy translate 
+	rotate
+	fw urx llx sub div fh ury lly sub div scale 
+	llx neg lly neg translate 
+	} bind def
+/FMENDEPSF {
+	FMEPSF restore
+	FrameDict begin 
+	} bind def
+FrameDict begin 
+/setmanualfeed {
+%%BeginFeature *ManualFeed True
+	 statusdict /manualfeed true put
+%%EndFeature
+	} def
+/max {2 copy lt {exch} if pop} bind def
+/min {2 copy gt {exch} if pop} bind def
+/inch {72 mul} def
+/pagedimen { 
+	paperheight sub abs 16 lt exch 
+	paperwidth sub abs 16 lt and
+	{/papername exch def} {pop} ifelse
+	} def
+	/papersizedict FMLOCAL
+/setpapername { 
+	/papersizedict 14 dict def 
+	papersizedict begin
+	/papername /unknown def 
+		/Letter 8.5 inch 11.0 inch pagedimen
+		/LetterSmall 7.68 inch 10.16 inch pagedimen
+		/Tabloid 11.0 inch 17.0 inch pagedimen
+		/Ledger 17.0 inch 11.0 inch pagedimen
+		/Legal 8.5 inch 14.0 inch pagedimen
+		/Statement 5.5 inch 8.5 inch pagedimen
+		/Executive 7.5 inch 10.0 inch pagedimen
+		/A3 11.69 inch 16.5 inch pagedimen
+		/A4 8.26 inch 11.69 inch pagedimen
+		/A4Small 7.47 inch 10.85 inch pagedimen
+		/B4 10.125 inch 14.33 inch pagedimen
+		/B5 7.16 inch 10.125 inch pagedimen
+	end
+	} def
+/papersize {
+	papersizedict begin
+		/Letter {lettertray letter} def
+		/LetterSmall {lettertray lettersmall} def
+		/Tabloid {11x17tray 11x17} def
+		/Ledger {ledgertray ledger} def
+		/Legal {legaltray legal} def
+		/Statement {statementtray statement} def
+		/Executive {executivetray executive} def
+		/A3 {a3tray a3} def
+		/A4 {a4tray a4} def
+		/A4Small {a4tray a4small} def
+		/B4 {b4tray b4} def
+		/B5 {b5tray b5} def
+		/unknown {unknown} def
+	papersizedict dup papername known {papername} {/unknown} ifelse get
+	end
+	/FMdicttop countdictstack 1 add def 
+	statusdict begin stopped end 
+	countdictstack -1 FMdicttop {pop end} for 
+	} def
+/manualpapersize {
+	papersizedict begin
+		/Letter {letter} def
+		/LetterSmall {lettersmall} def
+		/Tabloid {11x17} def
+		/Ledger {ledger} def
+		/Legal {legal} def
+		/Statement {statement} def
+		/Executive {executive} def
+		/A3 {a3} def
+		/A4 {a4} def
+		/A4Small {a4small} def
+		/B4 {b4} def
+		/B5 {b5} def
+		/unknown {unknown} def
+	papersizedict dup papername known {papername} {/unknown} ifelse get
+	end
+	stopped 
+	} def
+/desperatepapersize {
+	statusdict /setpageparams known
+		{
+		paperwidth paperheight 0 1 
+		statusdict begin
+		{setpageparams} stopped pop 
+		end
+		} if
+	} def
+/savematrix {
+	orgmatrix currentmatrix pop
+	} bind def
+/restorematrix {
+	orgmatrix setmatrix
+	} bind def
+/dmatrix matrix def
+/dpi    72 0 dmatrix defaultmatrix dtransform
+    dup mul exch   dup mul add   sqrt def
+/freq dpi 18.75 div 8 div round dup 0 eq {pop 1} if 8 mul dpi exch div def
+/sangle 1 0 dmatrix defaultmatrix dtransform exch atan def
+/DiacriticEncoding [
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/.notdef /.notdef /.notdef /.notdef /space /exclam /quotedbl
+/numbersign /dollar /percent /ampersand /quotesingle /parenleft
+/parenright /asterisk /plus /comma /hyphen /period /slash /zero /one
+/two /three /four /five /six /seven /eight /nine /colon /semicolon
+/less /equal /greater /question /at /A /B /C /D /E /F /G /H /I /J /K
+/L /M /N /O /P /Q /R /S /T /U /V /W /X /Y /Z /bracketleft /backslash
+/bracketright /asciicircum /underscore /grave /a /b /c /d /e /f /g /h
+/i /j /k /l /m /n /o /p /q /r /s /t /u /v /w /x /y /z /braceleft /bar
+/braceright /asciitilde /.notdef /Adieresis /Aring /Ccedilla /Eacute
+/Ntilde /Odieresis /Udieresis /aacute /agrave /acircumflex /adieresis
+/atilde /aring /ccedilla /eacute /egrave /ecircumflex /edieresis
+/iacute /igrave /icircumflex /idieresis /ntilde /oacute /ograve
+/ocircumflex /odieresis /otilde /uacute /ugrave /ucircumflex
+/udieresis /dagger /.notdef /cent /sterling /section /bullet
+/paragraph /germandbls /registered /copyright /trademark /acute
+/dieresis /.notdef /AE /Oslash /.notdef /.notdef /.notdef /.notdef
+/yen /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+/ordfeminine /ordmasculine /.notdef /ae /oslash /questiondown
+/exclamdown /logicalnot /.notdef /florin /.notdef /.notdef
+/guillemotleft /guillemotright /ellipsis /.notdef /Agrave /Atilde
+/Otilde /OE /oe /endash /emdash /quotedblleft /quotedblright
+/quoteleft /quoteright /.notdef /.notdef /ydieresis /Ydieresis
+/fraction /currency /guilsinglleft /guilsinglright /fi /fl /daggerdbl
+/periodcentered /quotesinglbase /quotedblbase /perthousand
+/Acircumflex /Ecircumflex /Aacute /Edieresis /Egrave /Iacute
+/Icircumflex /Idieresis /Igrave /Oacute /Ocircumflex /.notdef /Ograve
+/Uacute /Ucircumflex /Ugrave /dotlessi /circumflex /tilde /macron
+/breve /dotaccent /ring /cedilla /hungarumlaut /ogonek /caron
+] def
+/ReEncode { 
+	dup 
+	length 
+	dict begin 
+	{
+	1 index /FID ne 
+		{def} 
+		{pop pop} ifelse 
+	} forall 
+	0 eq {/Encoding DiacriticEncoding def} if 
+	currentdict 
+	end 
+	} bind def
+/graymode true def
+	/bwidth FMLOCAL
+	/bpside FMLOCAL
+	/bstring FMLOCAL
+	/onbits FMLOCAL
+	/offbits FMLOCAL
+	/xindex FMLOCAL
+	/yindex FMLOCAL
+	/x FMLOCAL
+	/y FMLOCAL
+/setpattern {
+	 /bwidth  exch def
+	 /bpside  exch def
+	 /bstring exch def
+	 /onbits 0 def  /offbits 0 def
+	 freq sangle landscape {90 add} if 
+		{/y exch def
+		 /x exch def
+		 /xindex x 1 add 2 div bpside mul cvi def
+		 /yindex y 1 add 2 div bpside mul cvi def
+		 bstring yindex bwidth mul xindex 8 idiv add get
+		 1 7 xindex 8 mod sub bitshift and 0 ne
+		 {/onbits  onbits  1 add def 1}
+		 {/offbits offbits 1 add def 0}
+		 ifelse
+		}
+		setscreen
+	 {} settransfer
+	 offbits offbits onbits add div FMsetgray
+	/graymode false def
+	} bind def
+/grayness {
+	FMsetgray
+	graymode not {
+		/graymode true def
+		orgxfer cvx settransfer
+		orgfreq organgle orgproc cvx setscreen
+		} if
+	} bind def
+	/HUE FMLOCAL
+	/SAT FMLOCAL
+	/BRIGHT FMLOCAL
+	/Colors FMLOCAL
+FMPrintInColor 
+	
+	{
+	/HUE 0 def
+	/SAT 0 def
+	/BRIGHT 0 def
+	% array of arrays Hue and Sat values for the separations [HUE BRIGHT]
+	/Colors   
+	[[0    0  ]    % black
+	 [0    0  ]    % white
+	 [0.00 1.0]    % red
+	 [0.37 1.0]    % green
+	 [0.60 1.0]    % blue
+	 [0.50 1.0]    % cyan
+	 [0.83 1.0]    % magenta
+	 [0.16 1.0]    % comment / yellow
+	 ] def
+      
+	/BEGINBITMAPCOLOR { 
+		BITMAPCOLOR} def
+	/BEGINBITMAPCOLORc { 
+		BITMAPCOLORc} def
+	/BEGINBITMAPTRUECOLOR { 
+		BITMAPTRUECOLOR } def
+	/BEGINBITMAPCOLORc { 
+		BITMAPTRUECOLORc } def
+	/K { 
+		Colors exch get dup
+		0 get /HUE exch store 
+		1 get /BRIGHT exch store
+		  HUE 0 eq BRIGHT 0 eq and
+			{1.0 SAT sub setgray}
+			{HUE SAT BRIGHT sethsbcolor} 
+		  ifelse
+		} def
+	/FMsetgray { 
+		/SAT exch 1.0 exch sub store 
+		  HUE 0 eq BRIGHT 0 eq and
+			{1.0 SAT sub setgray}
+			{HUE SAT BRIGHT sethsbcolor} 
+		  ifelse
+		} bind def
+	}
+	
+	{
+	/BEGINBITMAPCOLOR { 
+		BITMAPGRAY} def
+	/BEGINBITMAPCOLORc { 
+		BITMAPGRAYc} def
+	/BEGINBITMAPTRUECOLOR { 
+		BITMAPTRUEGRAY } def
+	/BEGINBITMAPTRUECOLORc { 
+		BITMAPTRUEGRAYc } def
+	/FMsetgray {setgray} bind def
+	/K { 
+		pop
+		} def
+	}
+ifelse
+/normalize {
+	transform round exch round exch itransform
+	} bind def
+/dnormalize {
+	dtransform round exch round exch idtransform
+	} bind def
+/lnormalize { 
+	0 dtransform exch cvi 2 idiv 2 mul 1 add exch idtransform pop
+	} bind def
+/H { 
+	lnormalize setlinewidth
+	} bind def
+/Z {
+	setlinecap
+	} bind def
+	/fillvals FMLOCAL
+/X { 
+	fillvals exch get
+	dup type /stringtype eq
+	{8 1 setpattern} 
+	{grayness}
+	ifelse
+	} bind def
+/V { 
+	gsave eofill grestore
+	} bind def
+/N { 
+	stroke
+	} bind def
+/M {newpath moveto} bind def
+/E {lineto} bind def
+/D {curveto} bind def
+/O {closepath} bind def
+	/n FMLOCAL
+/L { 
+ 	/n exch def
+	newpath
+	normalize
+	moveto 
+	2 1 n {pop normalize lineto} for
+	} bind def
+/Y { 
+	L 
+	closepath
+	} bind def
+	/x1 FMLOCAL
+	/x2 FMLOCAL
+	/y1 FMLOCAL
+	/y2 FMLOCAL
+	/rad FMLOCAL
+/R { 
+	/y2 exch def
+	/x2 exch def
+	/y1 exch def
+	/x1 exch def
+	x1 y1
+	x2 y1
+	x2 y2
+	x1 y2
+	4 Y 
+	} bind def
+/RR { 
+	/rad exch def
+	normalize
+	/y2 exch def
+	/x2 exch def
+	normalize
+	/y1 exch def
+	/x1 exch def
+	newpath
+	x1 y1 rad add moveto
+	x1 y2 x2 y2 rad arcto
+	x2 y2 x2 y1 rad arcto
+	x2 y1 x1 y1 rad arcto
+	x1 y1 x1 y2 rad arcto
+	closepath
+	16 {pop} repeat
+	} bind def
+/C { 
+	grestore
+	gsave
+	R 
+	clip
+	} bind def
+	/FMpointsize FMLOCAL
+/F { 
+	FMfonts exch get
+	FMpointsize scalefont
+	setfont
+	} bind def
+/Q { 
+	/FMpointsize exch def
+	F 
+	} bind def
+/T { 
+	moveto show
+	} bind def
+/RF { 
+	rotate
+	0 ne {-1 1 scale} if
+	} bind def
+/TF { 
+	gsave
+	moveto 
+	RF
+	show
+	grestore
+	} bind def
+/P { 
+	moveto
+	0 32 3 2 roll widthshow
+	} bind def
+/PF { 
+	gsave
+	moveto 
+	RF
+	0 32 3 2 roll widthshow
+	grestore
+	} bind def
+/S { 
+	moveto
+	0 exch ashow
+	} bind def
+/SF { 
+	gsave
+	moveto
+	RF
+	0 exch ashow
+	grestore
+	} bind def
+/B { 
+	moveto
+	0 32 4 2 roll 0 exch awidthshow
+	} bind def
+/BF { 
+	gsave
+	moveto
+	RF
+	0 32 4 2 roll 0 exch awidthshow
+	grestore
+	} bind def
+/G { 
+	gsave
+	newpath
+	normalize translate 0.0 0.0 moveto 
+	dnormalize scale 
+	0.0 0.0 1.0 5 3 roll arc 
+	closepath fill
+	grestore
+	} bind def
+/A { 
+	gsave
+	savematrix
+	newpath
+	2 index 2 div add exch 3 index 2 div sub exch 
+	normalize 2 index 2 div sub exch 3 index 2 div add exch 
+	translate 
+	scale 
+	0.0 0.0 1.0 5 3 roll arc 
+	restorematrix
+	stroke
+	grestore
+	} bind def
+	/x FMLOCAL
+	/y FMLOCAL
+	/w FMLOCAL
+	/h FMLOCAL
+	/xx FMLOCAL
+	/yy FMLOCAL
+	/ww FMLOCAL
+	/hh FMLOCAL
+	/FMsaveobject FMLOCAL
+	/FMoptop FMLOCAL
+	/FMdicttop FMLOCAL
+/BEGINPRINTCODE { 
+	/FMdicttop countdictstack 1 add def 
+	/FMoptop count 4 sub def 
+	/FMsaveobject save def
+	userdict begin 
+	/showpage {} def 
+	FMNORMALIZEGRAPHICS 
+	3 index neg 3 index neg translate
+	} bind def
+/ENDPRINTCODE {
+	count -1 FMoptop {pop pop} for 
+	countdictstack -1 FMdicttop {pop end} for 
+	FMsaveobject restore 
+	} bind def
+/gn { 
+	0 
+	{	46 mul 
+		cf read pop 
+		32 sub 
+		dup 46 lt {exit} if 
+		46 sub add 
+		} loop
+	add 
+	} bind def
+	/str FMLOCAL
+/cfs { 
+	/str sl string def 
+	0 1 sl 1 sub {str exch val put} for 
+	str def 
+	} bind def
+/ic [ 
+	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0223
+	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0223
+	0
+	{0 hx} {1 hx} {2 hx} {3 hx} {4 hx} {5 hx} {6 hx} {7 hx} {8 hx} {9 hx}
+	{10 hx} {11 hx} {12 hx} {13 hx} {14 hx} {15 hx} {16 hx} {17 hx} {18 hx}
+	{19 hx} {gn hx} {0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12}
+	{13} {14} {15} {16} {17} {18} {19} {gn} {0 wh} {1 wh} {2 wh} {3 wh}
+	{4 wh} {5 wh} {6 wh} {7 wh} {8 wh} {9 wh} {10 wh} {11 wh} {12 wh}
+	{13 wh} {14 wh} {gn wh} {0 bl} {1 bl} {2 bl} {3 bl} {4 bl} {5 bl} {6 bl}
+	{7 bl} {8 bl} {9 bl} {10 bl} {11 bl} {12 bl} {13 bl} {14 bl} {gn bl}
+	{0 fl} {1 fl} {2 fl} {3 fl} {4 fl} {5 fl} {6 fl} {7 fl} {8 fl} {9 fl}
+	{10 fl} {11 fl} {12 fl} {13 fl} {14 fl} {gn fl}
+	] def
+	/sl FMLOCAL
+	/val FMLOCAL
+	/ws FMLOCAL
+	/im FMLOCAL
+	/bs FMLOCAL
+	/cs FMLOCAL
+	/len FMLOCAL
+	/pos FMLOCAL
+/ms { 
+	/sl exch def 
+	/val 255 def 
+	/ws cfs 
+	/im cfs 
+	/val 0 def 
+	/bs cfs 
+	/cs cfs 
+	} bind def
+400 ms 
+/ip { 
+	is 
+	0 
+	cf cs readline pop 
+	{	ic exch get exec 
+		add 
+		} forall 
+	pop 
+	
+	} bind def
+/wh { 
+	/len exch def 
+	/pos exch def 
+	ws 0 len getinterval im pos len getinterval copy pop
+	pos len 
+	} bind def
+/bl { 
+	/len exch def 
+	/pos exch def 
+	bs 0 len getinterval im pos len getinterval copy pop
+	pos len 
+	} bind def
+/s1 1 string def
+/fl { 
+	/len exch def 
+	/pos exch def 
+	/val cf s1 readhexstring pop 0 get def
+	pos 1 pos len add 1 sub {im exch val put} for
+	pos len 
+	} bind def
+/hx { 
+	3 copy getinterval 
+	cf exch readhexstring pop pop 
+	} bind def
+	/h FMLOCAL
+	/w FMLOCAL
+	/d FMLOCAL
+	/lb FMLOCAL
+	/bitmapsave FMLOCAL
+	/is FMLOCAL
+	/cf FMLOCAL
+/wbytes { 
+	dup 
+	8 eq {pop} {1 eq {7 add 8 idiv} {3 add 4 idiv} ifelse} ifelse
+	} bind def
+/BEGINBITMAPBWc { 
+	1 {} COMMONBITMAPc
+	} bind def
+/BEGINBITMAPGRAYc { 
+	8 {} COMMONBITMAPc
+	} bind def
+/BEGINBITMAP2BITc { 
+	2 {} COMMONBITMAPc
+	} bind def
+/COMMONBITMAPc { 
+	/r exch def
+	/d exch def
+	gsave
+	translate rotate scale /h exch def /w exch def
+	/lb w d wbytes def 
+	sl lb lt {lb ms} if 
+	/bitmapsave save def 
+	r                    
+	/is im 0 lb getinterval def 
+	ws 0 lb getinterval is copy pop 
+	/cf currentfile def 
+	w h d [w 0 0 h neg 0 h] 
+	{ip} image 
+	bitmapsave restore 
+	grestore
+	} bind def
+/BEGINBITMAPBW { 
+	1 {} COMMONBITMAP
+	} bind def
+/BEGINBITMAPGRAY { 
+	8 {} COMMONBITMAP
+	} bind def
+/BEGINBITMAP2BIT { 
+	2 {} COMMONBITMAP
+	} bind def
+/COMMONBITMAP { 
+	/r exch def
+	/d exch def
+	gsave
+	translate rotate scale /h exch def /w exch def
+	/bitmapsave save def 
+	r                    
+	/is w d wbytes string def
+	/cf currentfile def 
+	w h d [w 0 0 h neg 0 h] 
+	{cf is readhexstring pop} image
+	bitmapsave restore 
+	grestore
+	} bind def
+	/proc1 FMLOCAL
+	/proc2 FMLOCAL
+	/newproc FMLOCAL
+/Fmcc {
+    /proc2 exch cvlit def
+    /proc1 exch cvlit def
+    /newproc proc1 length proc2 length add array def
+    newproc 0 proc1 putinterval
+    newproc proc1 length proc2 putinterval
+    newproc cvx
+} bind def
+/ngrayt 256 array def
+/nredt 256 array def
+/nbluet 256 array def
+/ngreent 256 array def
+	/gryt FMLOCAL
+	/blut FMLOCAL
+	/grnt FMLOCAL
+	/redt FMLOCAL
+	/indx FMLOCAL
+	/cynu FMLOCAL
+	/magu FMLOCAL
+	/yelu FMLOCAL
+	/k FMLOCAL
+	/u FMLOCAL
+/colorsetup {
+	currentcolortransfer
+	/gryt exch def
+	/blut exch def
+	/grnt exch def
+	/redt exch def
+	0 1 255 {
+		/indx exch def
+		/cynu 1 red indx get 255 div sub def
+		/magu 1 green indx get 255 div sub def
+		/yelu 1 blue indx get 255 div sub def
+		/k cynu magu min yelu min def
+		/u k currentundercolorremoval exec def
+		nredt indx 1 0 cynu u sub max sub redt exec put
+		ngreent indx 1 0 magu u sub max sub grnt exec put
+		nbluet indx 1 0 yelu u sub max sub blut exec put
+		ngrayt indx 1 k currentblackgeneration exec sub gryt exec put
+	} for
+	{255 mul cvi nredt exch get}
+	{255 mul cvi ngreent exch get}
+	{255 mul cvi nbluet exch get}
+	{255 mul cvi ngrayt exch get}
+	setcolortransfer
+	{pop 0} setundercolorremoval
+	{} setblackgeneration
+	} bind def
+	/tran FMLOCAL
+/fakecolorsetup {
+	/tran 256 string def
+	0 1 255 {/indx exch def 
+		tran indx
+		red indx get 77 mul
+		green indx get 151 mul
+		blue indx get 28 mul
+		add add 256 idiv put} for
+	currenttransfer
+	{255 mul cvi tran exch get 255.0 div}
+	exch Fmcc settransfer
+} bind def
+/BITMAPCOLOR { 
+	/d 8 def
+	gsave
+	translate rotate scale /h exch def /w exch def
+	/bitmapsave save def 
+	colorsetup
+	/is w d wbytes string def
+	/cf currentfile def 
+	w h d [w 0 0 h neg 0 h] 
+	{cf is readhexstring pop} {is} {is} true 3 colorimage 
+	bitmapsave restore 
+	grestore
+	} bind def
+/BITMAPCOLORc { 
+	/d 8 def
+	gsave
+	translate rotate scale /h exch def /w exch def
+	/lb w d wbytes def 
+	sl lb lt {lb ms} if 
+	/bitmapsave save def 
+	colorsetup
+	/is im 0 lb getinterval def 
+	ws 0 lb getinterval is copy pop 
+	/cf currentfile def 
+	w h d [w 0 0 h neg 0 h] 
+	{ip} {is} {is} true 3 colorimage
+	bitmapsave restore 
+	grestore
+	} bind def
+/BITMAPTRUECOLORc { 
+        gsave
+        translate rotate scale /h exch def /w exch def
+        /bitmapsave save def 
+        
+        /is w string def
+        
+        ws 0 w getinterval is copy pop 
+        /cf currentfile def 
+        w h 8 [w 0 0 h neg 0 h] 
+        {ip} {gip} {bip} true 3 colorimage
+        bitmapsave restore 
+        grestore
+        } bind def
+/BITMAPTRUECOLOR { 
+        gsave
+        translate rotate scale /h exch def /w exch def
+        /bitmapsave save def 
+        /is w string def
+        /gis w string def
+        /bis w string def
+        /cf currentfile def 
+        w h 8 [w 0 0 h neg 0 h] 
+        { cf is readhexstring pop } 
+        { cf gis readhexstring pop } 
+        { cf bis readhexstring pop } 
+        true 3 colorimage 
+        bitmapsave restore 
+        grestore
+        } bind def
+/BITMAPTRUEGRAYc { 
+        gsave
+        translate rotate scale /h exch def /w exch def
+        /bitmapsave save def 
+        
+        /is w string def
+        
+        ws 0 w getinterval is copy pop 
+        /cf currentfile def 
+        w h 8 [w 0 0 h neg 0 h] 
+        {ip gip bip w gray} image
+        bitmapsave restore 
+        grestore
+        } bind def
+/ww FMLOCAL
+/r FMLOCAL
+/g FMLOCAL
+/b FMLOCAL
+/i FMLOCAL
+/gray { 
+        /ww exch def
+        /b exch def
+        /g exch def
+        /r exch def
+        0 1 ww 1 sub { /i exch def r i get .299 mul g i get .587 mul
+			b i get .114 mul add add r i 3 -1 roll floor cvi put } for
+        r
+        } bind def
+/BITMAPTRUEGRAY { 
+        gsave
+        translate rotate scale /h exch def /w exch def
+        /bitmapsave save def 
+        /is w string def
+        /gis w string def
+        /bis w string def
+        /cf currentfile def 
+        w h 8 [w 0 0 h neg 0 h] 
+        { cf is readhexstring pop 
+          cf gis readhexstring pop 
+          cf bis readhexstring pop w gray}  image
+        bitmapsave restore 
+        grestore
+        } bind def
+/BITMAPGRAY { 
+	8 {fakecolorsetup} COMMONBITMAP
+	} bind def
+/BITMAPGRAYc { 
+	8 {fakecolorsetup} COMMONBITMAPc
+	} bind def
+/ENDBITMAP {
+	} bind def
+end 
+	/ALDsave FMLOCAL
+	/ALDmatrix matrix def ALDmatrix currentmatrix pop
+/StartALD {
+	/ALDsave save def
+	 savematrix
+	 ALDmatrix setmatrix
+	} bind def
+/InALD {
+	 restorematrix
+	} bind def
+/DoneALD {
+	 ALDsave restore
+	} bind def
+%%EndProlog
+%%BeginSetup
+(3.0) FMVERSION
+0.5 0.5 612 792 0 1 5 FMDOCUMENT
+0 0 /Palatino-Roman FMFONTDEFINE
+1 0 /Palatino-Bold FMFONTDEFINE
+32 FMFILLS
+0 0 FMFILL
+1 .1 FMFILL
+2 .3 FMFILL
+3 .5 FMFILL
+4 .7 FMFILL
+5 .9 FMFILL
+6 .97 FMFILL
+7 1 FMFILL
+8 <0f1e3c78f0e1c387> FMFILL
+9 <0f87c3e1f0783c1e> FMFILL
+10 <cccccccccccccccc> FMFILL
+11 <ffff0000ffff0000> FMFILL
+12 <8142241818244281> FMFILL
+13 <03060c183060c081> FMFILL
+14 <8040201008040201> FMFILL
+16 1 FMFILL
+17 .9 FMFILL
+18 .7 FMFILL
+19 .5 FMFILL
+20 .3 FMFILL
+21 .1 FMFILL
+22 0.03 FMFILL
+23 0 FMFILL
+24 <f0e1c3870f1e3c78> FMFILL
+25 <f0783c1e0f87c3e1> FMFILL
+26 <3333333333333333> FMFILL
+27 <0000ffff0000ffff> FMFILL
+28 <7ebddbe7e7dbbd7e> FMFILL
+29 <fcf9f3e7cf9f3f7e> FMFILL
+30 <7fbfdfeff7fbfdfe> FMFILL
+%%EndSetup
+%%Page: "1" 1
+%%BeginPaperSize: Letter
+%%EndPaperSize
+612 792 0 FMBEGINPAGE
+72 1537.99 1152 1548 R
+7 X
+0 K
+V
+72 32.69 1152 42.7 R
+V
+90 36 1170 1476 R
+V
+0 8 Q
+0 X
+(void setLayout\050Layout\051) 883.66 1198.58 T
+(void setDisplayedRows\050int\051) 883.66 1190.52 T
+(void setDisplayedColumns\050int\051) 883.66 1182.46 T
+(void setRowAlignment\050RowAlignment\051) 883.66 1174.39 T
+(void setColumnAlignment\050ColumnAlignment\051) 883.66 1166.4 T
+(void setHorizontalOf) 883.66 1158.34 T
+(fset\050int\051) 958.83 1158.34 T
+(void setV) 883.66 1150.27 T
+(erticalOf) 916.46 1150.27 T
+(fset\050int\051) 947.06 1150.27 T
+(void setHorizontalSpacing\050int\051) 883.66 1142.28 T
+(void setV) 883.66 1134.22 T
+(erticalSpacing\050int\051) 916.46 1134.22 T
+(void setAnchor\050UIComponent &, CompassPoint\051) 883.66 1126.15 T
+(void setRefer) 883.66 1118.09 T
+(encePoint\050CompassPoint\051) 930.25 1118.09 T
+(int addComponent\050UIComponent &\051) 883.66 1110.1 T
+(UIComponent *r) 883.66 1102.03 T
+(eplaceComponent\050int, UIComponent &\051) 942.7 1102.03 T
+(UIComponent *r) 883.66 1093.97 T
+(eplaceComponent\050UIComponent &,UIComponent &\051) 942.7 1093.97 T
+(int getNumber) 883.66 1085.98 T
+(ofComponents\050\051) 935.91 1085.98 T
+(UIComponent *getComponent\050int\051) 883.66 1077.91 T
+(virtual void setLocation\050int, int\051) 883.66 1069.85 T
+(virtual void setX\050int\051) 883.66 1061.78 T
+(virtual void setY\050int\051) 883.66 1053.79 T
+(virtual void setV) 883.66 1045.73 T
+(alueX\050int) 942.37 1045.73 T
+(virtual void show\050Boolean\051) 883.66 1037.66 T
+(virtual void setActive\050Boolean\051) 883.66 1029.67 T
+1 10 Q
+(ComponentGroup) 1048.68 1211.54 T
+(CharacterFont) 877.39 1454.18 T
+0 8 Q
+(char *getName\050\051) 879.41 1442.16 T
+(char *getFamily\050\051) 879.41 1434.17 T
+(char *getStyle\050\051) 879.41 1426.1 T
+(int *getSize\050\051) 879.41 1418.04 T
+1 10 Q
+(Noti\336er) 758.02 1289.88 T
+0 8 Q
+(void start\050\051) 716.69 1277.21 T
+(void dispatchEvent\050\051) 716.69 1269.14 T
+1 10 Q
+(UIW) 203.33 844.92 T
+(indow) 224.62 844.92 T
+0 8 Q
+(void setResizable\050Boolean \337ag\051) 67.97 830.81 T
+(void setDisplayFooter\050Boolean footer\051) 67.32 822.82 T
+(void setLeftFooter\050char *footer\051) 67.32 814.75 T
+(void setRightFooter\050char *footer\051) 67.32 806.69 T
+(char *getLeftFooter\050\051) 67.32 798.7 T
+(char *getRightFooter\050\051) 67.32 790.63 T
+(void setFit\050Dimension \336t\051) 67.32 782.57 T
+(virtual void setDoneHandler\050UICHandlerFunction\051) 67.32 774.5 T
+(void addDisplay\050UIDisplay &display\051) 67.32 758.45 T
+(void useDefaultDoneHandler\050Boolean\051 [PROTECTED]) 67.32 750.38 T
+1 10 Q
+(UIDisplay) 519.26 802.81 T
+0 8 Q
+(void setDisplayBor) 435.38 788.11 T
+(ders\050Boolean \337ag\051) 503.05 788.11 T
+(void setExtendT) 435.38 780.12 T
+(oEdge\050Dimension\051) 492.46 780.12 T
+1 10 Q
+(Image) 821.3 1480.54 T
+0 8 Q
+(void setImageColorMap\050ColorMap &colormap\051) 679.32 1467.14 T
+(int getDepth\050\051) 679.32 1459.15 T
+1 10 Q
+(ColorMap) 808.34 1140.19 T
+0 8 Q
+(void addColor\050char *, int, int, int\051) 721.01 1127.52 T
+(void addColor\050char *, Color\051) 721.01 1119.46 T
+(void addColor\050const char *\051) 721.01 1111.39 T
+(int \336ndColor\050Color\051) 721.01 1103.4 T
+(int \336ndColor\050char *\051) 721.01 1095.34 T
+(void changeColor\050char *, int, int, int\051) 721.01 1087.27 T
+(void changeColor\050char *, Color\051) 721.01 1079.28 T
+(long getXColorIndex\050Color\051) 721.01 1071.22 T
+(long getXColorIndex\050char *\051) 721.01 1063.15 T
+(long getXColorIndex\050int\051) 721.01 1055.09 T
+(Color &getColorRGB\050char *\051) 721.01 1047.1 T
+(void setColorMapName\050char *\051) 721.01 1039.03 T
+(char *getColorMapName\050\051) 721.01 1030.97 T
+(int getDefaultBackgr) 721.01 1022.98 T
+(oundIndex\050\051) 794.25 1022.98 T
+(int getDefaultFor) 721.01 1014.91 T
+(egr) 781.73 1014.91 T
+(oundIndex\050\051) 793.02 1014.91 T
+1 10 Q
+(UIComponent) 877.97 969.7 T
+0 8 Q
+(void setLabel\050char *\051) 704.02 955.8 T
+(void setLabel\050Image &\051) 704.02 948.02 T
+(void setLabelPosition\050Position\051) 704.02 940.32 T
+(Image *getLabel\050Image *&\051) 704.02 932.54 T
+(void setNotifyHandler\050UICHandlerFunction\051) 704.02 917.14 T
+(void setNotifyResult\050int r) 704.02 909.36 T
+(esult\051) 794.57 909.36 T
+(void setNotifyResult\050DisplaySetting r) 704.02 901.66 T
+(esult\051) 837.13 901.66 T
+(void setLabelFont\050CharacterFont &font\051) 704.02 893.88 T
+(void setV) 704.02 886.18 T
+(alueFont\050CharacterFont &font\051) 736.97 886.18 T
+(int addNotifyT) 704.02 878.4 T
+(ar) 756.59 878.4 T
+(get\050UIObject &, UICT) 763.6 878.4 T
+(ar) 839.59 878.4 T
+(getFunction,) 846.6 878.4 T
+(virtual void setV) 704.02 856.01 T
+(alueX\050int\051) 762.73 856.01 T
+(virtual void setV) 704.02 848.3 T
+(alueY\050int\051) 762.73 848.3 T
+(virtual int getV) 704.02 840.53 T
+(alueX\050\051) 757.28 840.53 T
+(virtual int getV) 704.02 832.82 T
+(alueY\050\051) 757.28 832.82 T
+(virtual void setFor) 704.02 825.12 T
+(egr) 769.52 825.12 T
+(oundColor\050Color\051) 780.81 825.12 T
+(virtual void setFor) 704.02 817.34 T
+(egr) 769.52 817.34 T
+(oundColor\050char *\051) 780.81 817.34 T
+(virtual void r) 704.02 786.38 T
+(epaintComponent\050ComponentDisplay *\051) 750.88 786.38 T
+(virtual void componentHotRegionEventPr) 704.02 778.68 T
+(oc\050ComponentDisplay *\051) 854.68 778.68 T
+(virtual void componentBackgr) 704.02 770.98 T
+(oundEventPr) 812.09 770.98 T
+(oc\050ComponentDisplay *\051) 859.16 770.98 T
+1 10 Q
+(UIMenu) 245.66 1490.47 T
+0 8 Q
+(void setDisplayedColumns\050int columns\051) 81 1477.66 T
+(void setDisplayedRows\050int r) 81 1469.88 T
+(ows\051) 182.14 1469.88 T
+(int getChoice\050int &choice\051) 81 1462.1 T
+(char *getChoice\050char *&label\051) 81 1454.33 T
+(Image *getChoice\050Image *&image\051) 81 1446.62 T
+(void setNotifyHandler\050UICHandlerFunction\051) 81 1438.85 T
+(int addItem\050char *\051) 81 1431.07 T
+(int addItem\050char *, UICHandlerFunction\051) 81 1423.37 T
+(int addItem\050char *, UIMenu &\051) 81 1415.59 T
+(int addItem\050Image &\051) 81 1407.82 T
+(int addItem\050Image &, UICHandlerFunction\051) 81 1400.04 T
+(int addItem\050Image &, UIMenu &\051) 81 1392.34 T
+(void setItemColor\050int, Color\051) 81 1384.56 T
+(void setItemColor\050int, char *\051) 81 1376.78 T
+(void setItemColor\050char *, Color\051) 81 1369.08 T
+(void setItemColor\050char *, char *\051) 81 1361.3 T
+(void setItemColor\050Image &, Color\051) 81 1353.53 T
+(void setItemColor\050Image &, char *\051) 81 1345.75 T
+(void setItemHandler\050int, UICHandlerFunction\051) 81 1338.05 T
+(void setItemHandler\050char *, UICHandlerFunction\051) 81 1330.27 T
+(void setItemHandler\050Image &, UICHandlerFunction\051) 81 1322.5 T
+(void setItemMenu\050int, UIMenu &\051) 81 1314.79 T
+(void setItemMenu\050char *, UIMenu &\051) 81 1307.02 T
+(void setItemMenu\050Image &, UIMenu &\051) 81 1299.24 T
+(void setItemW) 81 1291.46 T
+(indow\050int, UIW) 132.67 1291.46 T
+(indow &\051) 188.29 1291.46 T
+(void setItemW) 81 1283.76 T
+(indow\050char *, UIW) 132.67 1283.76 T
+(indow &\051) 199.17 1283.76 T
+(void setItemW) 81 1275.98 T
+(indow\050Image &, UIW) 132.67 1275.98 T
+(indow &\051) 208.95 1275.98 T
+(void setItemShowW) 81 1268.21 T
+(indow\050int item, Boolean \337ag\051) 152.55 1268.21 T
+(void setDefaultItem\050int\051) 81 1260.5 T
+(void setDefaultItem\050char *\051) 81 1252.73 T
+(void setDefaultItem\050Image &\051) 81 1244.95 T
+(void deleteItem\050int\051) 81 1237.18 T
+(void deleteItem\050char *\051) 81 1229.47 T
+(void deleteItem\050Image &\051) 81 1221.7 T
+(void setItemActive\050int, Boolean\051) 81 1213.92 T
+(void setItemActive\050char *, Boolean\051) 81 1206.14 T
+(void setItemActive\050Image &, Boolean\051) 81 1198.44 T
+(void r) 81 1190.66 T
+(eplaceItem\050int, char *\051) 102.11 1190.66 T
+(void r) 81 1182.89 T
+(eplaceItem\050int, char *, UICHandlerFunction\051) 102.11 1182.89 T
+(void r) 81 1175.18 T
+(eplaceItem\050int, char *, UIMenu &\051) 102.11 1175.18 T
+(void r) 81 1167.41 T
+(eplaceItem\050int, Image &\051) 102.11 1167.41 T
+(void r) 81 1159.63 T
+(eplaceItem\050int, Image &, UICHandlerFunction\051) 102.11 1159.63 T
+(void r) 81 1151.86 T
+(eplaceItem\050int, Image &, UIMenu &\051) 102.11 1151.86 T
+(void r) 81 1144.15 T
+(eplaceItem\050char *, char *\051) 102.11 1144.15 T
+(void r) 81 1136.38 T
+(eplaceItem\050char *, char *, UICHandlerFunction\051) 102.11 1136.38 T
+(void r) 81 1128.6 T
+(eplaceItem\050char *, char *, UIMenu &\051) 102.11 1128.6 T
+(void r) 81 1120.9 T
+(eplaceItem\050char *, Image &\051) 102.11 1120.9 T
+(void r) 81 1113.12 T
+(eplaceItem\050char *, Image &, UICHandlerFunction\051) 102.11 1113.12 T
+(void r) 81 1105.34 T
+(eplaceItem\050char *, Image &, UIMenu &\051) 102.11 1105.34 T
+(void r) 81 1097.57 T
+(eplaceItem\050Image &, char *\051) 102.11 1097.57 T
+(void r) 81 1089.86 T
+(eplaceItem\050Image &, char *, UIHandlerFunction\051) 102.11 1089.86 T
+(void r) 81 1082.09 T
+(eplaceItem\050Image &, char *, UIMenu &\051) 102.11 1082.09 T
+(void r) 81 1074.31 T
+(eplaceItem\050Image &, Image &\051) 102.11 1074.31 T
+(void r) 81 1066.61 T
+(eplaceItem\050Image &, Image &, UIHandlerFunction\051) 102.11 1066.61 T
+(void r) 81 1058.83 T
+(eplaceItem\050Image &, Image &, UIMenu &\051) 102.11 1058.83 T
+(void setPinnable\050Boolean \337ag\051) 81 1051.06 T
+(void setDynamic\050Boolean \337ag\051) 81 1043.28 T
+(void show\050UIObject *\051) 81 1035.58 T
+(void r) 81 1027.8 T
+(efr) 102.11 1027.8 T
+(eshShowMenu\050\051) 111.61 1027.8 T
+(Boolean isShowMenuDisplayed\050\051) 81 1020.02 T
+1 10 Q
+(NoticePrompt) 1067.33 1486.37 T
+0 8 Q
+(void setButtonLabels\050char *, ...\051) 967.32 1470.96 T
+(int addButtonLabel\050char *\051) 967.32 1462.9 T
+(void deleteButtonLabel\050int\051) 967.32 1454.9 T
+(void deleteButtonLabel\050char *\051) 967.32 1446.84 T
+(void setY) 967.32 1438.78 T
+(esAndNoLabels\050char *yes, char *no\051) 999.84 1438.78 T
+(void setMessage\050char *message\051) 967.32 1430.71 T
+(void setMessages\050char **messages\051) 967.32 1422.72 T
+(void setMessages\050char *message, ...\051) 967.32 1414.66 T
+(void setFocusLocation\050int x, int y\051) 967.32 1406.59 T
+(void setT) 967.32 1398.6 T
+(riggerEvent\050int trigger_event\051) 999.42 1398.6 T
+(void setBeeping\050Boolean beep_\337ag\051) 967.32 1390.54 T
+(int show\050UIObject *event_object\051) 967.32 1382.47 T
+1 10 Q
+(HotRegion) 1081.66 1352.66 T
+0 8 Q
+(int getID\050\051) 902.3 1339.34 T
+(void setID\050int id\051) 902.3 1331.28 T
+(void getDefaultRectangle\050int &x, int &y) 902.3 1323.22 T
+(, int &width, int &height\051) 1042.25 1323.22 T
+(void setDefaultRectangle\050int &x, int &y) 902.3 1315.22 T
+(, int &width, int &height\051) 1041.2 1315.22 T
+(void setT) 902.3 1307.16 T
+(ranspar) 934.41 1307.16 T
+(ent\050Boolean transpar) 961.42 1307.16 T
+(ent_\337ag\051) 1035.22 1307.16 T
+(void setDetectionFunction\050HotRegionDetectionFunction\051) 902.3 1299.1 T
+(void setRegionHandler\050UICHandlerFunction\051) 902.3 1291.03 T
+(UIObject *getHotRegionObject\050\051) 902.3 1283.04 T
+(Boolean isHotRegion\050int, int, UIObject *\051) 902.3 1274.98 T
+(Boolean isT) 902.3 1266.91 T
+(ranspar) 942.63 1266.91 T
+(ent\050\051) 969.64 1266.91 T
+1 10 Q
+(PopUpW) 320.33 791.57 T
+(indow) 361.61 791.57 T
+0 8 Q
+(void setPinned\050Boolean\051) 294.34 777.53 T
+(virtual void show\050Boolean\051) 294.34 769.46 T
+1 10 Q
+(BaseW) 230.69 663.38 T
+(indow) 261.41 663.38 T
+0 8 Q
+(virtual void show\050Boolean\051) 82.01 647.51 T
+(void setClosed\050Boolean closedStatus\051) 82.01 639.28 T
+(void setIcon\050Image &theIcon\051) 82.01 630.98 T
+(void setIcon\050char *iconFile\051) 82.01 622.68 T
+(void setIconMask\050Image &theIcon\051) 82.01 614.46 T
+(void setIconMask\050char *iconFile\051) 82.01 606.16 T
+(void setIconX\050int x\051) 82.01 597.86 T
+(void setIconY\050int y\051) 82.01 589.56 T
+(void setIconLabel\050char *icon_label\051) 82.01 581.33 T
+(void setBusy\050Boolean \337ag\051) 82.01 573.03 T
+(void setNoCon\336rm\050Boolean \337ag\051) 82.01 564.73 T
+(void setDestr) 82.01 556.51 T
+(oyPr) 128.96 556.51 T
+(ompt\050NoticePr) 145.61 556.51 T
+(ompt &\051) 198.28 556.51 T
+(Destr) 82.01 548.21 T
+(oyStatus getDestr) 101.04 548.21 T
+(oyStatus\050\051) 163.38 548.21 T
+(void setSaveHandler\050UICHandlerFunction\051) 82.01 539.91 T
+(void setIconEventHandler\050UICHandlerFunction\051) 82.01 531.61 T
+(virtual void setDoneHandler\050UICHandlerFunction\051) 82.01 523.38 T
+(int getIconX\050\051) 82.01 515.08 T
+(int getIconY\050\051) 82.01 506.78 T
+(Boolean isClosed\050\051) 82.01 498.56 T
+(void setNoDestr) 82.01 490.26 T
+(oy\050Boolean\051) 139.97 490.26 T
+1 10 Q
+(T) 607.32 752.18 T
+(ermDisplay) 612.88 752.18 T
+(T) 486.86 757.79 T
+(extDisplay) 492.42 757.79 T
+0 8 Q
+(T) 419.87 742.3 T
+(extDisplayStatus loadFile\050char *\051) 424.04 742.3 T
+(void setReadOnly\050Boolean \337ag\051) 419.87 734.2 T
+(Boolean getModi\336ed\050\051) 419.87 726.17 T
+1 10 Q
+(ComponentDisplay) 629.35 711.9 T
+0 8 Q
+(void addComponent\050UIComponent &\051) 323.35 690.67 T
+(void setDynamic\050Boolean \337ag\051) 323.35 682.67 T
+(void setPaintColorMap\050ColorMap &color_map\051) 323.35 674.66 T
+(virtual void setFor) 323.35 666.73 T
+(egr) 388.85 666.73 T
+(oundColor\050Color\051) 400.14 666.73 T
+(virtual void setFor) 323.35 658.72 T
+(egr) 388.85 658.72 T
+(oundColor\050char *\051) 400.14 658.72 T
+(virtual void setBackgr) 323.35 650.71 T
+(oundColor\050Color\051) 401.36 650.71 T
+(virtual void setBackgr) 323.35 642.71 T
+(oundColor\050char *\051) 401.36 642.71 T
+(void setFit\050Dimension \336t\051) 323.35 634.77 T
+(void setLayoutDir) 323.35 626.77 T
+(ection\050Orientation dir) 387.92 626.77 T
+(ection\051) 464.95 626.77 T
+(void setPaintHeight\050int height\051) 323.35 618.76 T
+(void setPaintW) 323.35 610.83 T
+(idth\050int width\051) 377.24 610.83 T
+(void setAutoExpand\050Boolean \337ag\051) 323.35 602.82 T
+(void setDrawingModel\050DrawingModel new_model\051) 323.35 594.82 T
+(void setRepaintHandler\050UICHandlerFunction\051) 323.35 586.81 T
+(void setResizeHandler\050UICHandlerFunction\051) 323.35 578.87 T
+(void setPSCanvasClipRects\050Xv_xr) 323.35 570.87 T
+(ectlist *r) 444.02 570.87 T
+(ects\051) 472.78 570.87 T
+(void setMenu\050UIMenu &\051) 323.35 562.86 T
+(UIMenu *getMenu\050\051) 323.35 554.93 T
+(void setBitGravity\050int\051) 323.35 546.92 T
+(Xv_window getPaintW) 323.35 538.92 T
+(indow\050\051) 405.62 538.92 T
+(Display *getXDisplay\050\051) 323.35 530.91 T
+(W) 323.35 522.97 T
+(indow getXW) 330.91 522.97 T
+(indow\050\051) 379.58 522.97 T
+(NeWStoken getPSW) 323.35 514.97 T
+(indow\050\051) 395.38 514.97 T
+(Xv_r) 323.35 506.96 T
+(ectlist *getXRectlist\050\051) 340.21 506.96 T
+(Rectlist *getRectlist\050\051) 323.35 499.03 T
+(void drawXImagePlane\050Image &image, int x, int y) 323.35 491.02 T
+(, Boolean transpar) 500.58 491.02 T
+(ent = F) 564.62 491.02 T
+(ALSE, GC gc = \050GC\051NULL\051) 588.41 491.02 T
+(void setPSFocus\050\051) 323.35 483.02 T
+(void setPSFocus\050NeWStoken canvas\051) 323.35 475.01 T
+(void loadPSFile\050char *ps_\336le\051) 323.35 467.07 T
+(void clearPSW) 323.35 459.07 T
+(indow\050\051) 374.89 459.07 T
+(void setPSGray\050\337oat gray\051) 323.35 451.06 T
+(void setPSColor\050\337oat r) 323.35 443.13 T
+(ed, \337oat gr) 403.69 443.13 T
+(een, \337oat blue\051) 441.7 443.13 T
+(void setPSColor\050Color color\051) 323.35 435.12 T
+(void drawPST) 323.35 427.12 T
+(ranspar) 373.36 427.12 T
+(entImagePlane\050Image &image, int x, int y\051) 400.38 427.12 T
+(void stor) 323.35 419.11 T
+(ePSDrawImagePr) 354.82 419.11 T
+(oc\050char *name, Image &image, Boolean transpar) 417.56 419.11 T
+(ent = F) 588.1 419.11 T
+(ALSE, Boolean invert = F) 611.89 419.11 T
+(ALSE\051) 700.29 419.11 T
+(void stor) 323.35 411.18 T
+(ePSImagePr) 354.82 411.18 T
+(oc\050char *, Image &\051) 397.55 411.18 T
+(void stor) 323.35 403.17 T
+(ePSImageMaskPr) 354.82 403.17 T
+(oc\050char *name, Image &image, Boolean transpar) 416.95 403.17 T
+(ent = TRUE\051) 587.49 403.17 T
+(void r) 323.35 395.16 T
+(emovePSPr) 344.46 395.16 T
+(oc\050char *name\051) 384.93 395.16 T
+(void addRepaintComponent\050UIComponent &component\051) 323.35 387.23 T
+(void addComponentHotRegion\050UIComponent &component, HotRegion &hot_r) 323.35 379.22 T
+(egion, Boolean \337ag = F) 606.95 379.22 T
+(ALSE\051) 686.99 379.22 T
+1 10 Q
+(UIInputT) 1045.15 962.14 T
+(extItem) 1087.91 962.14 T
+0 8 Q
+(void setMaxInputLength\050int length\051) 981.22 948.74 T
+(void setInputDisplayLength\050int length\051) 981.22 940.75 T
+(void setUnderline\050Boolean value\051) 981.22 932.69 T
+(void setReadOnly\050Boolean \337ag\051) 981.22 924.62 T
+(void setEcho\050Boolean \337ag\051) 981.22 916.63 T
+1 11 Q
+(Button) 902.02 744.55 T
+0 8 Q
+(void setMenu\050UIMenu &\051) 769.32 731.16 T
+(void setAbbr) 769.32 723.17 T
+(eviated\050Boolean \337ag\051) 815.32 723.17 T
+(void setLabelW) 769.32 715.1 T
+(idth\050int width\051) 824.26 715.1 T
+(void setW) 769.32 707.04 T
+(indow\050UIW) 804.8 707.04 T
+(indow &button_window\051) 846.83 707.04 T
+(void setShowW) 769.32 698.98 T
+(indow\050Boolean \337ag\051) 824.68 698.98 T
+1 10 Q
+(Gauge) 917.64 666.58 T
+0 8 Q
+(void setT) 784.37 652.54 T
+(icks\050int num_ticks\051) 816.75 652.54 T
+(void setMinT) 784.37 644.47 T
+(ickString\050char *string\051) 831.29 644.47 T
+(void setMaxT) 784.37 636.41 T
+(ickString\050char *string\051) 832.44 636.41 T
+(void setV) 784.37 628.34 T
+(alue\050int new_value\051) 817.33 628.34 T
+(void setMinV) 784.37 620.35 T
+(alue\050int min\051) 831.87 620.35 T
+(void setMaxV) 784.37 612.29 T
+(alue\050int max\051) 833.01 612.29 T
+(void setGaugeW) 784.37 604.22 T
+(idth\050int newW) 843.04 604.22 T
+(idth\051) 894.47 604.22 T
+(void setMinAndMaxV) 784.37 596.23 T
+(alues\050int min, int max\051) 863.32 596.23 T
+(void setOrientation\050Orientation dir) 784.37 588.17 T
+(ection\051) 908.8 588.17 T
+(void setDisplayRange\050Boolean display_range\051) 784.37 580.1 T
+1 10 Q
+(T) 866.02 542.23 T
+(extItem) 871.57 542.23 T
+0 8 Q
+(void setLabelBold\050Boolean bold\051) 789.98 529.49 T
+1 10 Q
+(UIChoice) 712.37 334.15 T
+0 8 Q
+(virtual void deleteChoice\050int\051) 535.03 319.18 T
+(virtual void deleteChoice\050char *\051) 535.03 311.04 T
+(virtual void deleteChoice\050Image &\051) 535.03 302.9 T
+(virtual int addChoice\050char *\051) 535.03 294.7 T
+(virtual int addChoice\050Image &\051) 535.03 286.56 T
+(virtual int addChoice\050int, char *\051) 535.03 278.42 T
+(virtual int addChoice\050int, Image &\051) 535.03 270.22 T
+(void setChoices\050char *, ...\051) 535.03 262.08 T
+(void setChoices\050Image &, ...\051) 535.03 253.87 T
+(void setChoiceColor\050int, Color\051) 535.03 245.74 T
+(void setChoiceColor\050int, char *\051) 535.03 237.6 T
+(void setChoiceColor\050char *, Color\051) 535.03 229.39 T
+(void setChoiceColor\050char *, char *\051) 535.03 221.26 T
+(void setChoiceColor\050Image &, Color\051) 535.03 213.12 T
+(void setChoiceColor\050Image &, char *\051) 535.03 204.91 T
+(virtual char *getChoice\050char *&\051) 535.03 196.78 T
+(virtual int getChoice\050int &\051) 535.03 188.64 T
+(virtual Image *getChoice\050Image *&\051) 535.03 180.43 T
+(virtual char *getChoice\050int, char *&\051) 535.03 172.3 T
+(virtual int getChoice\050int, int &\051) 535.03 164.09 T
+(virtual Image *getChoice\050int, Image *&\051) 535.03 155.95 T
+(virtual int getNumberSelected\050\051) 535.03 147.82 T
+(void setMultipleChoice\050Boolean \337ag\051) 535.03 139.61 T
+(void setDisplayedColumns\050int num_columns\051) 535.03 131.47 T
+(void setDisplayedRows\050int num_r) 535.03 123.34 T
+(ows\051) 656.71 123.34 T
+(void setChoiceFont\050CharacterFont &font\051) 535.03 115.13 T
+(virtual void setSelectedChoice\050int, Boolean \337ag = TRUE\051) 535.03 106.99 T
+(virtual void setSelectedChoice\050char *, Boolean \337ag = TRUE\051) 535.03 98.78 T
+(virtual void setSelectedChoice\050Image &, Boolean \337ag = TRUE\051) 535.03 90.65 T
+(virtual Boolean isSelectedChoice\050int\051) 535.03 82.51 T
+1 10 Q
+(Scroller) 901.37 510.91 T
+0 8 Q
+(void setScr) 787.32 498.82 T
+(ollAmount\050int amount\051) 826 498.82 T
+(void setV) 787.32 490.82 T
+(iewLength\050int length\051) 820.57 490.82 T
+(void setPageLength\050int length\051) 787.32 482.76 T
+(void setObjectLength\050int length\051) 787.32 474.7 T
+(void setOrientation\050Orientation dir) 787.32 466.63 T
+(ection\051) 911.75 466.63 T
+(void setSplittable\050Boolean \337ag\051) 787.32 458.64 T
+(int getCurr) 787.32 450.58 T
+(entLocation\050\051) 826.45 450.58 T
+1 10 Q
+(ChoiceMenu) 197.35 934.63 T
+0 8 Q
+(void setMultipleChoice\050Boolean \337ag\051) 121.97 918.65 T
+(int getNumberSelected\050\051) 121.97 910.58 T
+(int getChoice\050int, int &\051) 121.97 902.52 T
+(char *getChoice\050int, char *&\051) 121.97 894.53 T
+(Image *getChoice\050int, Image *&\051) 121.97 886.46 T
+(void setSelectedItem\050int, Boolean\051) 121.97 878.4 T
+1 10 Q
+(CommandMenu) 295.34 958.03 T
+(MultiLineInput) 1048.97 879.98 T
+0 8 Q
+(char *getV) 1021.68 866.59 T
+(alue\050char *&\051) 1058.07 866.59 T
+(void setV) 1021.68 858.6 T
+(alue\050char *\051) 1054.64 858.6 T
+(void setDisplayedRows\050int\051) 1021.68 850.54 T
+1 10 Q
+(AlphanumericInput) 1030.03 814.68 T
+0 8 Q
+(char *getV) 1036.01 799.27 T
+(alue\050char *&\051) 1072.4 799.27 T
+(void setV) 1036.01 791.28 T
+(alue\050char *\051) 1068.97 791.28 T
+1 10 Q
+(NumericInput) 1066.97 763.99 T
+0 8 Q
+(int getV) 973.01 747.94 T
+(alue\050int &\051) 1000.51 747.94 T
+(void setV) 973.01 739.94 T
+(alue\050int new_value\051) 1005.97 739.94 T
+(void setMinV) 973.01 731.88 T
+(alue\050int min\051) 1020.51 731.88 T
+(void setMaxV) 973.01 723.82 T
+(alue\050int max\051) 1021.65 723.82 T
+(void setMinAndMaxV) 973.01 715.75 T
+(alues\050int min, int max\051) 1051.96 715.75 T
+1 10 Q
+(Slider) 1108.66 567.36 T
+0 8 Q
+(int getV) 985.97 551.95 T
+(alue\050int &\051) 1013.47 551.95 T
+(void setSliderW) 985.97 543.89 T
+(idth\050int newW) 1042.17 543.89 T
+(idth\051) 1093.6 543.89 T
+(void setDisplayV) 985.97 535.9 T
+(alue\050Boolean display\051) 1046.41 535.9 T
+(void setDisplayEndBoxes\050Boolean display\051) 985.97 527.83 T
+(void setMinV) 985.97 519.77 T
+(alueString\050char *string\051) 1033.47 519.77 T
+(void setMaxV) 985.97 511.7 T
+(alueString\050char *string\051) 1034.61 511.7 T
+1 10 Q
+(CheckBoxChoice) 331.99 238.97 T
+(StackChoice) 378.36 289.66 T
+0 8 Q
+(void setDefaultChoice\050int\051) 339.7 275.62 T
+1 10 Q
+(ListChoice) 245.74 406.22 T
+0 8 Q
+(void setRowHeight\050int height\051) 74.02 392.98 T
+(void setDisplayedRows\050int num_r) 74.02 384.91 T
+(ows\051) 195.69 384.91 T
+(void setReadOnly\050Boolean r) 74.02 376.85 T
+(eadW) 173.8 376.85 T
+(rite\051) 193.92 376.85 T
+(void setLabelFont\050CharacterFont &font\051) 74.02 360.79 T
+(void setListFont\050CharacterFont &font\051) 74.02 352.73 T
+(void setT) 74.02 344.66 T
+(itle\050char *\051) 106.4 344.66 T
+(void setMenu\050UIMenu &\051) 74.02 336.67 T
+(SelectionStatus getOperation\050\051) 74.02 328.61 T
+(void deleteAllChoices\050\051) 74.02 320.54 T
+(virtual void deleteChoice\050int\051) 74.02 312.55 T
+(virtual void deleteChoice\050char *\051) 74.02 304.49 T
+(virtual void deleteChoice\050Image &\051) 74.02 296.42 T
+(virtual int addChoice\050char *\051) 74.02 288.36 T
+(virtual int addChoice\050Image &\051) 74.02 280.37 T
+(virtual int addChoice\050char *, Image &\051) 74.02 272.3 T
+(virtual int addChoice\050int, char *\051) 74.02 264.24 T
+(virtual int addChoice\050int, Image &\051) 74.02 256.25 T
+(virtual int addChoice\050int, char *, Image &\051) 74.02 248.18 T
+(virtual Image *getChoice\050Image *&\051) 74.02 240.12 T
+(virtual char *getChoice\050char *&\051) 74.02 232.06 T
+(virtual int getChoice\050int &\051) 74.02 224.06 T
+(virtual char *getChoice\050int, char *&\051) 74.02 216 T
+(virtual Image *getChoice\050int, Image *&\051) 74.02 207.94 T
+(virtual int getChoice\050int, int &\051) 74.02 199.94 T
+(virtual int getNumberSelected\050\051) 74.02 191.88 T
+(virtual char *getV) 74.02 183.82 T
+(alue\050char *&\051) 136.16 183.82 T
+(virtual Image *getV) 74.02 175.75 T
+(alue\050Image *&\051) 142.83 175.75 T
+(virtual char *getV) 74.02 167.76 T
+(alue\050int, char *&\051) 136.16 167.76 T
+(virtual Image *getV) 74.02 159.7 T
+(alue\050int, Image *&\051) 142.83 159.7 T
+(void r) 74.02 151.63 T
+(eplaceChoice\050int, char *\051) 95.12 151.63 T
+(void r) 74.02 143.64 T
+(eplaceChoice\050int, Image &\051) 95.12 143.64 T
+(void r) 74.02 135.58 T
+(eplaceChoice\050int, char *, Image &\051) 95.12 135.58 T
+(int getNumberOfChoices\050\051) 74.02 127.51 T
+(virtual void setSelectedChoice\050int, Boolean \337ag = TRUE\051) 74.02 119.45 T
+(virtual void setSelectedChoice\050char *, Boolean \337ag = TRUE\051) 74.02 111.46 T
+(virtual void setSelectedChoice\050Image &, Boolean \337ag = TRUE\051) 74.02 103.39 T
+(virtual Boolean isSelectedChoice\050int r) 74.02 95.33 T
+(ow_number\051) 206.62 95.33 T
+1 10 Q
+(T) 344.3 156.31 T
+(oggleChoice) 349.86 156.31 T
+(ScrollChoice) 1053.29 379.85 T
+965.02 1375.7 1131.05 1481.69 R
+0.5 H
+0 Z
+N
+899.64 1247.04 1134.29 1347.7 R
+N
+879.98 1024.27 1134.65 1205.64 R
+N
+714.31 1263.31 794.3 1285.34 R
+N
+877.03 1411.7 943.06 1451.02 R
+N
+676.66 1447.34 849.31 1475.35 R
+N
+719.35 1008 854.71 1136.02 R
+N
+432 774 576 801 R
+N
+0 8 Q
+(None) 640.66 737.57 T
+633.67 733.68 665.64 744.98 R
+N
+415.37 711 549 753.16 R
+N
+66.02 747 262.66 840.31 R
+N
+292.32 762.98 392.33 785.66 R
+N
+79.34 468 295.99 657.98 R
+N
+319.68 351 723.67 703.12 R
+N
+700.99 767.02 948.31 964.37 R
+N
+979.34 909 1121.98 957.67 R
+N
+767.3 693 939.31 739.01 R
+N
+1019.3 845.28 1122.62 875.3 R
+N
+781.99 573.34 951.34 660.67 R
+N
+983.3 505.37 1139.33 562.03 R
+N
+787.97 524.02 908.64 537.34 R
+N
+337.03 268.7 435.02 285.34 R
+N
+(None) 388.01 222.98 T
+385.63 217.3 409.61 232.63 R
+N
+971.35 708.7 1135.37 757.37 R
+N
+1033.63 784.66 1122.98 808.63 R
+N
+71.35 81 297.36 401.33 R
+N
+(None) 385.63 141.7 T
+383.33 135.36 406.66 150.7 R
+N
+78.7 980.35 287.35 1485.79 R
+N
+119.3 873.29 257.33 929.3 R
+N
+(None) 350.64 943.99 T
+348.7 938.3 372.02 953.64 R
+N
+784.37 397.3 937.73 506.66 R
+N
+532.37 69.26 759.02 328.1 R
+N
+890.64 54 1116 374.01 R
+N
+291.87 1455.04 286.98 1466 296.93 1459.3 294.4 1457.17 4 Y
+V
+413.57 1314.72 294.42 1457.16 2 L
+2 Z
+N
+275.24 844.28 264.02 840.05 271.29 849.59 273.27 846.94 4 Y
+V
+413.57 950.4 273.28 846.91 2 L
+N
+752.97 973.01 760.94 964.03 749.43 967.43 751.2 970.22 4 Y
+V
+654.26 1031.11 751.23 970.19 2 L
+N
+292.83 794.82 301.02 786.05 289.43 789.15 291.13 791.98 4 Y
+V
+264.02 807.98 291.14 791.95 2 L
+N
+469.5 761.82 458.97 756.05 464.84 766.52 467.17 764.17 4 Y
+V
+477 774 467.2 764.12 2 L
+N
+575.94 714.01 575.99 702.01 569.59 712.16 572.76 713.09 4 Y
+V
+553.32 781.99 572.77 713.07 2 L
+N
+617.28 768.53 625.01 759.35 613.59 763.04 615.44 765.79 4 Y
+V
+576 792 615.46 765.76 2 L
+N
+967.5 934.91 977.96 929.03 965.97 928.47 966.74 931.69 4 Y
+V
+948.02 936 966.75 931.68 2 L
+N
+810.15 750.59 806.96 739.02 803.54 750.53 806.84 750.56 4 Y
+V
+806.69 767.3 806.86 750.54 2 L
+N
+991.29 768.54 987.98 757.01 984.68 768.54 987.98 768.54 4 Y
+V
+987.98 909 987.98 768.54 2 L
+N
+1022.46 798.33 1033.99 795.02 1022.46 791.72 1022.46 795.02 4 Y
+V
+987.98 795.02 1022.46 795.02 2 L
+N
+1007.48 864.28 1019.02 860.98 1007.48 857.67 1007.48 860.98 4 Y
+V
+987.98 860.98 1007.48 860.98 2 L
+N
+307.82 337.86 296.99 343.03 308.92 344.39 308.37 341.12 4 Y
+V
+532.01 303.98 308.38 341.1 2 L
+N
+447.25 275.06 435.29 276.03 445.95 281.55 446.6 278.31 4 Y
+V
+531 294.98 446.62 278.25 2 L
+N
+422.45 220.49 410.98 223.99 422.57 227.1 422.51 223.8 4 Y
+V
+532.01 221.98 422.51 223.8 2 L
+N
+418.66 135.23 407 138.08 418.39 141.84 418.53 138.54 4 Y
+V
+532.01 142.99 418.54 138.48 2 L
+N
+879.09 254.65 890.98 253.03 880.04 248.1 879.57 251.38 4 Y
+V
+759.02 234 879.58 251.35 2 L
+N
+1 18 Q
+(UIC Hierarchy Map) 74.66 1527.7 T
+872.23 1037.86 879.97 1047.03 878.26 1035.15 875.24 1036.51 4 Y
+V
+842.98 964.01 875.26 1036.5 2 L
+N
+341.54 977.17 346.02 966.04 336.32 973.1 338.93 975.14 4 Y
+V
+288 1040.98 338.94 975.12 2 L
+N
+952.78 1389.23 964.63 1387.37 953.59 1382.67 953.18 1385.95 4 Y
+V
+654.26 1348.99 953.21 1385.95 2 L
+N
+889.63 1307.94 900.97 1304 889.27 1301.34 889.45 1304.64 4 Y
+V
+654.26 1317.6 889.49 1304.63 2 L
+N
+0 8 Q
+(int xview_event_action = UIC_NOT_SET) 704.02 870.7 T
+(,) 848.65 870.7 T
+(int xview_event_id = UIC_NOT_SET\051) 704.02 862.99 T
+(int addNotifyT) 81.36 1011.74 T
+(ar) 133.93 1011.74 T
+(get\050UIObject &, UICT) 140.94 1011.74 T
+(ar) 216.93 1011.74 T
+(getFunction,) 223.95 1011.74 T
+(int xview_event_action = UIC_NOT_SET) 81.36 1003.75 T
+(,) 225.99 1003.75 T
+(int xview_event_id = UIC_NOT_SET\051) 81.36 995.76 T
+0 7 Q
+(void initUI\050int &ar) 413.86 1476.29 T
+(gc, char **ar) 471.9 1476.29 T
+(gv) 509.12 1476.29 T
+(, ...\051) 516.17 1476.29 T
+(const char *getV) 414.5 1456.49 T
+(ersion\050\051) 464.15 1456.49 T
+(int getRootW) 414.5 1449.94 T
+(indowW) 455.32 1449.94 T
+(idth\050\051) 481.94 1449.94 T
+(int getRootW) 414.5 1443.31 T
+(indow Height\050\051) 455.32 1443.31 T
+(virtual void setLocation\050int, int\051) 414.5 1436.76 T
+(virtual void setSize\050int, int\051) 414.5 1430.14 T
+(virtual void setX\050int\051) 414.5 1423.51 T
+(virtual void setY\050int\051) 414.5 1416.96 T
+(virtual void setW) 414.5 1410.34 T
+(idth\050int\051) 468.02 1410.34 T
+(virtual void setHeight\050int\051) 414.5 1403.78 T
+(virtual void setFor) 414.5 1397.16 T
+(egr) 471.75 1397.16 T
+(oundColor\050Color\051) 481.62 1397.16 T
+(virtual void setFor) 414.5 1390.61 T
+(egr) 471.75 1390.61 T
+(oundColor\050char *\051) 481.62 1390.61 T
+(virtual void setBackgr) 414.5 1383.98 T
+(oundColor\050Color\051) 482.69 1383.98 T
+(virtual void setBackgr) 414.5 1377.43 T
+(oundColor\050char *\051) 482.69 1377.43 T
+(virtual void setEventHandler\050UICHandlerFunction\051) 414.5 1370.81 T
+(int addHotRegion\050HotRegion &hot_r) 414.5 1364.26 T
+(egion\051) 529.92 1364.26 T
+(HotRegion *r) 414.5 1357.63 T
+(emoveHotRegion\050int index\051) 455.33 1357.63 T
+(HotRegion *r) 414.5 1351.08 T
+(emoveHotRegion\050HotRegion &hot_r) 455.33 1351.08 T
+(egion\051) 569.22 1351.08 T
+(HotRegion *getActiveHotRegion\050int index\051) 414.5 1344.46 T
+(Boolean isHotRegionEvent\050\051) 414.5 1337.9 T
+(int addEventT) 414.5 1331.28 T
+(ar) 458.22 1331.28 T
+(get\050UIObject &, UICT) 464.35 1331.28 T
+(ar) 530.77 1331.28 T
+(getFunction,) 536.89 1331.28 T
+(UIGeneric getXV) 415.01 1311.48 T
+(iewObject\050\051) 467.37 1311.48 T
+(void setHelp\050char *helpentry\051) 415.01 1304.93 T
+(virtual int getX\050\051) 415.01 1298.3 T
+(virtual int getY\050\051) 415.01 1291.75 T
+(virtual void getLocation\050int &, int &\051) 415.01 1285.13 T
+(virtual int getHeight\050\051) 415.01 1278.58 T
+(virtual int getW) 415.01 1271.95 T
+(idth\050\051) 463.76 1271.95 T
+(virtual void getSize\050int &, int &\051) 415.01 1265.4 T
+(InputEvent *getEvent\050\051) 415.01 1258.78 T
+(void setEventResult\050EventResult r) 415.01 1252.22 T
+(esult\051) 520.95 1252.22 T
+(void setObjectData\050char *name, Generic &data\051) 415.01 1245.6 T
+(void setObjectData\050char *name, Generic *data\051) 415.01 1239.05 T
+(Generic *&getObjectData\050char *name\051) 415.01 1232.42 T
+(Generic *deleteObjectData\050char *name\051) 415.01 1225.8 T
+(Generic *traverseObjectData\050Boolean r) 415.01 1219.25 T
+(eset_\337ag, char *&name\051) 534.32 1219.25 T
+(void setFont\050CharacterFont &\051) 415.01 1212.62 T
+(GC getFontGC\050\051) 415.01 1206.07 T
+(void consumeEvent\050int\051) 415.01 1199.45 T
+(void useDefaultColorMap\050\051) 415.01 1192.9 T
+(void setColorMap\050ColorMap &\051) 415.01 1186.27 T
+(virtual void setLabel\050char *\051) 415.01 1179.72 T
+(virtual char *getLabel\050char *&\051) 415.01 1173.1 T
+(virtual char *getV) 415.01 1166.54 T
+(alue\050char *&\051) 469.32 1166.54 T
+(virtual int getV) 415.01 1159.92 T
+(alue\050int &\051) 461.56 1159.92 T
+(virtual char *getChoice\050char *&\051) 415.01 1153.37 T
+(virtual int getChoice\050int &\051) 415.01 1146.74 T
+(virtual int getChoice\050int, int &\051) 415.01 1140.19 T
+(virtual char *getChoice\050int, char *&\051) 415.01 1133.57 T
+(virtual int getNumberSelected\050\051) 415.01 1126.94 T
+(virtual void show\050Boolean\051) 415.01 1120.39 T
+(virtual void cr) 415.01 1107.22 T
+(eateObject\050UIObject *par) 459.07 1107.22 T
+(ent = NULL\051) 535.9 1107.22 T
+(void cr) 415.01 1100.59 T
+(eateXV) 436.56 1100.59 T
+(iewObjects\050\051) 458.35 1100.59 T
+1 10 Q
+(UIObject) 584.35 1486.94 T
+412.7 828 653.33 1483.99 R
+0 Z
+N
+0 7 Q
+(void useResour) 413.86 1469.66 T
+(ceDB \050char *\051) 461.84 1469.66 T
+(                                         int xview_event_action = UIC_NOT_SET) 414.5 1324.66 T
+(,) 612.55 1324.66 T
+(                                        int xview_event_id = UIC_NOT_SET\051) 414.5 1318.1 T
+(void setDr) 415.01 1094.04 T
+(opRectangle\050int x, int y) 447.46 1094.04 T
+(, int width, int height\051) 518.49 1094.04 T
+(void setDr) 414.5 1087.42 T
+(opSiteDefault\050Boolean\051) 446.95 1087.42 T
+(void setDraggable\050Boolean\051) 415.01 1080.86 T
+(void setAcceptsDr) 415.01 1074.24 T
+(ops\050Boolean \337ag\051) 471.89 1074.24 T
+(void setDragCursor\050Image &cursor) 415.01 1067.69 T
+(, int x = 0, int y = 0\051) 524.29 1067.69 T
+(void setAcceptDr) 415.01 1054.51 T
+(opCursor\050Image &cursor) 468.92 1054.51 T
+(, int x = 0, int y = 0\051) 546.27 1054.51 T
+(void setDragMessage\050char *\051) 415.01 1041.34 T
+(void setDragObject\050Generic &\051) 415.01 1034.71 T
+(void setDragObject\050Generic *\051) 415.01 1028.16 T
+(char *getDragMessage\050\051) 415.01 1021.54 T
+(Generic *getDragObject\050\051) 415.01 1014.91 T
+(char *getDragHostName\050\051) 415.01 1008.36 T
+1 10 Q
+(DropT) 810.65 1247.33 T
+(arget) 840.08 1247.33 T
+696.67 1180.66 865.37 1242.65 R
+7 X
+V
+0 X
+N
+0 8 Q
+(void setIcon\050char *\051) 700.63 1233.36 T
+(void setIcon\050Image &\051) 700.63 1225.3 T
+(void setBusyIcon\050char *\051) 700.63 1217.23 T
+(void setBusyIcon\050Image &\051) 700.63 1209.17 T
+(void useDefaultNotifyHandler\050Boolean\051 [PROTECTED]) 81.36 987.7 T
+176.85 941.31 177.33 929.32 170.57 939.23 173.71 940.27 4 Y
+V
+160.63 979.99 173.71 940.25 2 L
+7 X
+V
+2 Z
+0 X
+N
+141.94 670.68 141.98 658.68 135.59 668.84 138.76 669.76 4 Y
+V
+117 747 138.76 669.73 2 L
+7 X
+V
+0 X
+N
+0 7 Q
+(void setEventResult\050int\051) 415.01 1113.77 T
+(char *getDragFileName \050\051) 415.01 1001.74 T
+(Boolean isClosed\050\051) 415.01 995.18 T
+(XID getXID \050\051) 415.01 988.56 T
+(Selection_r) 415.01 982.01 T
+(equestor getDr) 448.83 982.01 T
+(opSelection\050\051) 494.77 982.01 T
+(Xv_drag_dr) 415.01 975.38 T
+(op getDragSite\050\051) 451.92 975.38 T
+(void useDefaultEventHandler\050Boolean\051) 415.01 968.83 T
+(void setDragHandler\050UICHandlerFunction\051) 415.01 962.21 T
+(void setDr) 415.01 955.66 T
+(opHandler\050UICHandlerFunction\051) 447.46 955.66 T
+(void setDragCursorHotSpot\050int, int\051) 415.01 949.03 T
+(void setDragCursor\050char *, int x = 0, int y = 0\051) 415.01 1061.06 T
+(void setAcceptDr) 415.01 942.48 T
+(opCursorHotSpot\050int, int\051) 468.92 942.48 T
+(void setAcceptDr) 415.01 1047.89 T
+(opCursor\050char *, int x = 0, int y = 0\051) 468.92 1047.89 T
+(char *getDr) 415.01 935.86 T
+(opMessage\050\051) 450.45 935.86 T
+(Generic *getDr) 415.01 929.3 T
+(opObject\050\051) 461.02 929.3 T
+(int getDragResult\050\051) 415.01 922.68 T
+(void setSendDragDelete\050Boolean\051) 415.01 916.06 T
+(UIObject *getPar) 415.01 909.5 T
+(ent\050\051) 466.85 909.5 T
+(void setXV) 415.01 902.88 T
+(iewObject\050UICGeneric\051) 448.73 902.88 T
+(void useDefaultEventHandler\050Boolean\051 [PROTECTED]) 415.01 896.33 T
+(void useDefaultDragHandler\050Boolean\051 [PROTECTED]) 415.01 889.7 T
+(void useDefaultDr) 415.01 883.15 T
+(opHandler\050Boolean\051 [PROTECTED]) 472.5 883.15 T
+0 8 Q
+(void setActive\050Boolean \337ag\051) 704.02 809.64 T
+(virtual char *getLabel\050char *&\051) 704.02 924.84 T
+(void useDefaultNotifyHandler\050Boolean\051 [PROTECTED]) 704.02 801.86 T
+(void setNotifyStatus\050int\051) 704.02 794.16 T
+(void setSelectionRequir) 535.03 74.3 T
+(ed\050Boolean selection\051) 618.45 74.3 T
+(Scr) 74.02 368.86 T
+(oller *getScr) 84.78 368.86 T
+(oller\050\051) 127.54 368.86 T
+(void setIgnor) 419.87 718.07 T
+(eLimits\050Boolean\051) 466.97 718.07 T
+(int getV) 787.32 434.52 T
+(iewLength\050\051) 815.12 434.52 T
+(int getScr) 787.32 426.46 T
+(ollAmount\050\051) 820.55 426.46 T
+(int getPageLength\050\051) 787.32 418.39 T
+(int getObjectLength\050\051) 787.32 410.33 T
+(int getV) 787.32 402.34 T
+(iewStart\050\051) 815.12 402.34 T
+(int setV) 787.32 442.51 T
+(iewStart\050\051) 814.07 442.51 T
+(void setBitMapFile\050Boolean\051) 679.32 1451.09 T
+(virtual Boolean defaultDetectionFunction\050int, int\051) 902.3 1258.92 T
+(void useDefaultRegionHandler\050Boolean\051 [PROTECTED]) 902.3 1250.86 T
+(virtual void setDr) 700.63 1201.18 T
+(opRectangle\050int, int, int, int\051) 763.51 1201.18 T
+(virtual void setDr) 700.63 1193.11 T
+(opSiteDefault\050Boolean\051) 763.51 1193.11 T
+(virtual void setAcceptDr) 700.63 1185.05 T
+(ops\050Boolean\051) 788.07 1185.05 T
+(void useDefaultRepaintHandler\050Boolean\051  [PROTECTED]) 323.35 371.22 T
+(void useDefaultResizeHandler\050Boolean\051 [PROTECTED]) 323.35 363.21 T
+(void useDefaultSaveHandler\050Boolean\051 [PROTECTED]) 82.01 481.96 T
+(void useDefaultIconEventHandler\050Boolean\051 [PROTECTED]) 82.01 473.66 T
+0 7 Q
+(void getDragConvertData\050Atom &type, UIGeneric &data,) 415.01 876.53 T
+(                                                  unsigned long &length, int &format\051) 415.01 869.98 T
+(void setDragConvertData\050Atom type, UICGeneric data,) 415.01 863.35 T
+(                                                 unsigned long length, int format\051) 415.01 856.8 T
+(Selection_owner getDragConvertSelection\050\051) 415.01 850.18 T
+0 8 Q
+(void setRowHeight\050int height\051) 893.95 363.7 T
+(void setDisplayedRows\050int num_r) 893.95 355.7 T
+(ows\051) 1015.63 355.7 T
+(void setReadOnly\050Boolean r) 893.95 347.69 T
+(eadW) 993.74 347.69 T
+(rite\051) 1013.85 347.69 T
+(void setLabelFont\050CharacterFont &font\051) 893.95 331.76 T
+(void setListFont\050CharacterFont &font\051) 893.95 323.75 T
+(void setT) 893.95 315.75 T
+(itle\050char *\051) 926.33 315.75 T
+(void setMenu\050UIMenu &\051) 893.95 307.82 T
+(SelectionStatus getOperation\050\051) 893.95 299.81 T
+(void deleteAllChoices\050\051) 893.95 291.81 T
+(virtual void deleteChoice\050int\051) 893.95 283.88 T
+(virtual void deleteChoice\050char *\051) 893.95 275.88 T
+(virtual void deleteChoice\050Image &\051) 893.95 267.87 T
+(virtual int addChoice\050char *\051) 893.95 259.87 T
+(virtual int addChoice\050Image &\051) 893.95 251.94 T
+(virtual int addChoice\050char *, Image &\051) 893.95 243.93 T
+(virtual int addChoice\050int, char *\051) 893.95 235.93 T
+(virtual int addChoice\050int, Image &\051) 893.95 227.99 T
+(virtual int addChoice\050int, char *, Image &\051) 893.95 219.99 T
+(virtual Image *getChoice\050Image *&\051) 893.95 211.99 T
+(virtual char *getChoice\050char *&\051) 893.95 203.98 T
+(virtual int getChoice\050int &\051) 893.95 196.05 T
+(virtual char *getChoice\050int, char *&\051) 893.95 188.05 T
+(virtual Image *getChoice\050int, Image *&\051) 893.95 180.04 T
+(virtual int getChoice\050int, int &\051) 893.95 172.11 T
+(virtual int getNumberSelected\050\051) 893.95 164.11 T
+(virtual char *getV) 893.95 156.1 T
+(alue\050char *&\051) 956.09 156.1 T
+(virtual Image *getV) 893.95 148.1 T
+(alue\050Image *&\051) 962.76 148.1 T
+(virtual char *getV) 893.95 140.17 T
+(alue\050int, char *&\051) 956.09 140.17 T
+(virtual Image *getV) 893.95 132.16 T
+(alue\050int, Image *&\051) 962.76 132.16 T
+(void r) 893.95 124.16 T
+(eplaceChoice\050int, char *\051) 915.06 124.16 T
+(void r) 893.95 116.23 T
+(eplaceChoice\050int, Image &\051) 915.06 116.23 T
+(void r) 893.95 108.22 T
+(eplaceChoice\050int, char *, Image &\051) 915.06 108.22 T
+(int getNumberOfChoices\050\051) 893.95 100.22 T
+(virtual void setSelectedChoice\050int, Boolean \337ag = TRUE\051) 893.95 92.22 T
+(virtual void setSelectedChoice\050char *, Boolean \337ag = TRUE\051) 893.95 84.29 T
+(virtual void setSelectedChoice\050Image &, Boolean \337ag = TRUE\051) 893.95 76.28 T
+(virtual Boolean isSelectedChoice\050int r) 893.95 68.28 T
+(ow_number\051) 1026.56 68.28 T
+(Scr) 893.95 339.76 T
+(oller *getScr) 904.71 339.76 T
+(oller\050\051) 947.47 339.76 T
+707.82 1084.68 719.35 1081.37 707.82 1078.06 707.82 1081.37 4 Y
+V
+653.98 1081.37 707.82 1081.37 2 L
+7 X
+V
+0 X
+N
+685.14 1217.3 696.67 1213.99 685.14 1210.68 685.14 1213.99 4 Y
+V
+653.98 1213.99 685.14 1213.99 2 L
+7 X
+V
+0 X
+N
+496.79 810.61 503.99 801.02 492.8 805.34 494.79 807.97 4 Y
+V
+468 828 494.8 807.96 2 L
+7 X
+V
+0 X
+N
+702.49 1280.66 714.02 1277.35 702.49 1274.04 702.49 1277.35 4 Y
+V
+653.98 1277.35 702.49 1277.35 2 L
+7 X
+V
+0 X
+N
+774.08 1445.86 785.99 1447.35 776.68 1439.78 775.38 1442.82 4 Y
+V
+653.98 1391.33 775.42 1442.81 2 L
+7 X
+V
+0 X
+N
+864.66 1427.56 876.63 1426.69 866.02 1421.08 865.34 1424.32 4 Y
+V
+653.98 1380.67 865.38 1424.31 2 L
+7 X
+V
+0 X
+N
+742.68 352.89 739.37 341.35 736.06 352.89 739.37 352.89 4 Y
+V
+739.37 767.3 739.37 352.89 2 L
+7 X
+V
+0 X
+N
+771.82 606.38 781.98 600 769.98 600.03 770.9 603.21 4 Y
+V
+739.37 612 770.91 603.19 2 L
+7 X
+V
+0 X
+N
+778.03 538.15 787.94 531.39 775.95 531.87 776.99 535.01 4 Y
+V
+739.37 547.34 777.02 534.98 2 L
+7 X
+V
+0 X
+N
+776.77 486.96 783.99 477.38 772.79 481.68 774.78 484.32 4 Y
+V
+739.37 510.7 774.79 484.3 2 L
+7 X
+V
+0 X
+N
+1051.11 571.4 1058.65 562.07 1047.31 565.99 1049.21 568.7 4 Y
+V
+951.34 636.7 1049.25 568.66 2 L
+7 X
+V
+0 X
+N
+43.99 36 1159.99 1516.03 R
+1 H
+0 Z
+N
+0 7 Q
+(int getObjectID \050\051) 413.86 1462.63 T
+(void setDragFileName \050char *\051) 415.01 843.15 T
+0 8 Q
+(void setW) 74.02 87.28 T
+(idth \050int\051) 109.49 87.28 T
+(void setW) 893.95 60.23 T
+(idth \050int\051) 929.43 60.23 T
+(void addChildW) 67.32 766.46 T
+(indow\050UIW) 126.6 766.46 T
+(indow &window\051) 168.63 766.46 T
+0 7 Q
+(char *getDr) 415.01 836.11 T
+(opFileName \050\051) 450.45 836.11 T
+FMENDPAGE
+%%EndPage: "1" 0
+%%Trailer
+%%BoundingBox: 0 0 1224 1584
+%%Pages: 1 -1
+%%DocumentFonts: Palatino-Roman
+%%+ Palatino-Bold

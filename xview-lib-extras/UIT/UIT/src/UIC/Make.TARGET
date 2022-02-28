@@ -1,0 +1,37 @@
+TARGET = \
+	libUIC.a \
+	libUICSS.a \
+	libUIC.so.3.0 \
+	libUICSS.so.3.0
+
+all:	$(TARGET)
+
+libUIC.a: $(OBJECTS)
+	cp $(GENERICHOME)/src/libGeneric.a libUIC.a
+	ar cr libUIC.a $(OBJECTS)
+	ranlib libUIC.a
+
+install: $(TARGET)
+	/bin/cp libUIC.a $(UITDEST)/lib
+	/bin/cp $(GENINC)/Generic.h $(UITDEST)/include
+	/bin/cp $(GENINC)/GenericList.h $(UITDEST)/include
+	/bin/cp $(GENINC)/GenericHash.h $(UITDEST)/inlcude
+	/bin/cp $(GENINC)/Boolean.h $(UITDEST)/include
+	install ./libUICSS.so.3.0 $(UITDEST)/lib
+	install ./libUIC.so.3.0 $(UITDEST)/lib
+	mkdir -p $(UITDEST)/include/c++
+	install $(INCLUDE)/*.h $(UITDEST)/include/c++
+	mkdir -p $(UITDEST)/include/c++/private
+	install $(INCLUDE)/private/*.h $(UITDEST)/include/c++/private
+
+libUICSS.a: $(SSOBJECTS)
+	ar cr libUICSS.a $(SSOBJECTS)
+	ranlib libUICSS.a
+
+libUIC.so.3.0: $(OBJECTS)
+	gcc -shared -Wl,-soname,libUIC.so.3 -o $(LIB)/libUIC.so.3.0 $(GENERICHOME)/src/*.o \
+	      $(OBJECTS)
+
+libUICSS.so.3.0: $(SSOBJECTS)
+	gcc -shared  -Wl,-soname,libUICSS.so.3 -o $(LIB)/libUICSS.so.3.0 $(GENERICHOME)/src/*.o \
+	      $(SSOBJECTS)

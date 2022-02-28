@@ -1,0 +1,3 @@
+Libraries are cross-dependant; thus, you have to make; make install libguide,
+then do the same in SlingShot and finally UIT.
+

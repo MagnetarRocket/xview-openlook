@@ -1,0 +1,32 @@
+/*
+*    SCCS ID: %Z%%M% %I% %E% SMI 
+*
+*    Copyright (c) 1992 Sun Microsystems, Inc.  All rights reserved.
+*    See LEGAL_NOTICE file for terms of the license.
+*/
+
+#include "ChooserService_opnums.h"
+
+ptype ChooserService {
+  start "chooser_service";
+  per_session 1;
+
+  handle:
+    session color_chooser (in  string title,
+			   in  string left_footer,
+			   in  string right_footer,
+			   in  string current_color,
+			   out string selected_color)
+	 => start opnum=COLOR_CHOOSER;
+
+    session file_chooser (in  string title,
+			  in  string left_footer,
+			  in  string right_footer,
+			  in  string button_label,
+			  in  string current_directory,
+			  in  string file_filter_pattern,
+			  in  int    show_dot_files,
+			  out string selected_directory,
+			  out string selected_file)
+	 => start opnum=FILE_CHOOSER;
+};

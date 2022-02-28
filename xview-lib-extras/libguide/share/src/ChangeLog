@@ -1,0 +1,19 @@
+2000-03-09  Joachim Nilsson  <crash@vmlinux.org>
+
+	* libguide/gio.c: Fixed the varargs/stdargs problem. Inserted the __STDC__
+	conditionals for stdarg.h and shifted the va_start() functions in gio_printf()
+	to match the correct use of the va_*() functions.
+	
+
+2000-02-26  Joachim Nilsson <crash@vmlinux.org>
+
+	* ChangeLog: Created the ChageLog and added the entry below.
+
+
+1999-11-19  Joachim Nilsson <crash@vmlinux.org>
+
+	* libguide/gio.c: Remade the Inp & Outp global variables and fixed
+	some serious bugs in related code. Mostly added code for checking
+	if Inp & Outp != NULL. Code was reworked by Joachim Nilsson and
+	Daniel Rytterlund 19th Nov. 1999, {jocke,danne}@vmlinux.org
+

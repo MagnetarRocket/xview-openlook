@@ -1,0 +1,266 @@
+
+SlingShot extensions 2.1
+
+COMPILING
+---------
+
+You will need OpenWindows or XView version 3.0 (or later) to compile this.
+
+	1) cd to the top directory (the one that contains this README file)
+	2) type "make"
+
+Everything should compile and execute without problems under both 
+SunOS 5.x and SunOS 4.x.
+
+
+INSTALLATION
+------------
+
+After building, type 'make install INSTALL_DIR=/where/you/want/it'.  This
+will copy only the static library, shared libraries, and include files
+to the directory you specify.
+
+Installing is optional.  If you want the source to be seperate from the
+working libraries, then this is handy.  The major difference is where
+you compile and link your programs, and where you expect shared
+libraries to be when your programs execute.  The structure of the
+install directory is the same as the source hierarchy, minus the
+library source code and examples.
+
+
+DIRECTORIES
+-----------
+
+The directory structure that lies below this is as follows:
+
+	./include/sspkg
+		The include files.
+
+	./src
+		Source for the library.
+
+	./lib
+		Shared and static libraries by default are built here.
+
+	./examples
+		Source for demos and examples.  This is the first place
+		(after building) to look if you want a quick feel for
+		the extensions.  These programs are intended to be
+		programming examples, rather than end-user programs.
+		See the manual for an explaination of their function.
+
+
+RELEASE 2.0 INFO
+----------------
+
+Okay, so what's up in this release?  There have been alot of changes,
+so programs that compile and work under 1.0 may take some massaging to
+get to compile.  For example, the 1.0 dnd interface has been replaced
+and is compatible with xview 3.x DragDrop interfaces.  Programs written
+to the 1.0 interface will require porting.
+
+You can look at the documentation for the details, but here's a few
+teasers:  there are new objects (clock, bag, box).  The grip and the
+drawarea have had a few interesting features added.  The documentation
+has been improved dramatically.  The drawtext can now be editible.
+
+RELEASE 2.1 INFO
+----------------
+
+Release 2.1 is different from 2.0 in three ways:
+
+*	All the patches for 2.0 have been incorporated, and bugs
+	reported since the release of patch 4 have been fixed.
+
+*	Multiple selection lists have been added.  The changes
+	are compatable with 2.0, and some new attributes and
+	functions handle the new features:
+
+	RECTOBJ_HIGHLIGHT_GROUP (Boolean) -
+		All descents of an object with this set to TRUE will
+		share the same selection list.  You can retrieve
+		this selection list with rectobj_get_selected_list2().
+
+	RECTOBJ_HIGHLIGHT_LIST (get only)  is equivalent to calling
+	rectobj_get_selected_list2(), only in attribute form.
+	The argument to the function is the object with 
+	RECTOBJ_HIGHLIGHT_GROUP set to TRUE.
+
+	The original rectobj_get_selected_list() function still operates
+	on the global selection, but it will not contain objects that
+	are on other local selection lists.
+
+*       For memory savings, Rectobj_ops structures are shared between
+	objects.  This change is transparent from the API.  Thanks to
+	Mike Lake for this change.  This solution also solves a bug
+	with reference counting inherent in the 2.0 release.
+
+The documentation for 2.1 has had only minor updates.
+
+CAVEATS
+-------
+
+This is NOT an official or supported product of Sun Microsystems, Inc.
+This software has been developed to leverage other efforts, and it is
+being released because it is hoped others can get benefits from it
+too.  However, there ARE bugs in this software which may never be
+fixed, and there is no guarantee of compatability between releases.
+
+PATCH HISTORY
+-------------
+This is the patch history from SlingShot 2.0.
+
+
+Patch 1 fixes a bug with editable drawtext objects and adds a new
+attribute.
+
+The bug: When an editable drawtext loses focus, it destroys the panel
+and the panel text item that are used to edit the text.  Unfortunately,
+this happens far too often in normal use.  Additionally, this is
+annoying behavior for users too, because the editing window doesn't
+stick around when you move the mouse out and in to the window.
+
+The additional attribute (DRAWTEXT_NOTIFY_PROC) has been added mostly
+because it is very difficult to get notification of all the
+circumstances where the drawtext string changes.  This also makes it
+unnecessary to use trap the single click proc for editable drawtext
+objects and use the drawtext_start_edit() and drawtext_finish_edit()
+functions.
+
+This attribute is a function of the form:
+	void callback(drawtext)
+		drawtext drawtext;
+it is called when the user presses return or when the caret is
+removed from the edited object.  It takes one argument, drawtext, that 
+is the object that has been changed by the edit.  Inside this callback,
+you can find out what the new string is by using DRAWTEXT_STRING
+on the drawtext.
+
+An update to sspkg2.0/examples/drawtext/drawtext.c is part of patch 1.
+The patched example program demonstrates the use of the new attribute.
+
+Source files affected by patch 1 are:
+	sspkg2.0/src/drawtext.c
+	sspkg2.0/src/drawicon.c
+	sspkg2.0/src/dtext_impl.h
+	sspkg2.0/include/sspkg/drawobj.h
+	sspkg2.0/include/sspkg/patchlevel.h
+	sspkg2.0/examples/drawtext/drawtext.c
+
+Patch 2, new features:
+
+GRIP_RUBBER_LINE.
+
+	This is a new value for GRIP_RUBBER_STYLE.  This value makes the
+	grip draw a line from the begining of the drag to the current 
+	position.  The demo examples/grip/gripdemo demonstrates the
+	use of the attribute.
+
+--
+RECTOBJ_MENU_CLIENT.
+
+	You can use this attribute to get the rectobj that the mouse
+	as positioned over when menu_show() was called. Usage:
+	        rectobj = (Rectobj) xv_get(menu, RECTOBJ_MENU_CLIENT);
+
+	This is not necessarily the same as the rectobj that had the
+	menu attached to it via RECTOBJ_MENU, because the menu
+	may be attached to an ancestor of the rectobj.
+	
+	Because this attribute is set when xview's menu_show() function is
+	called, this is not recommended for use if the menu is pinned.
+
+
+Patch2, bug fixes:
+
+Fixed a potential memory leak with the allocation of a GC in
+the drawtext.
+--
+Changed the order in which an object was marked as selected and 
+the invocation of the selection callback.  This permits the application
+to manipulate the selection status from its selection proc.
+--
+The grip was not reporting x and y positions in GRIP_DONE_PROC when
+the GRIP_RUBBER_STYLE was GRIP_RUBBER_NONE.  Two assignment
+statements were added to fix this up.
+--
+The CANVAS_SHELL_DROP_SITE was being improperly maintained due
+to a typo.
+--
+The size of the paint windows wasn't being tracked correctly
+when the paint window dimensions was not the same as the 
+canvas dimensions.  This caused problem with events not getting
+delivered, and regions not getting painted.
+--
+VFlush() was causing a core dump.  This only happened when
+VSetColor() commands were previously used.
+--
+There was a core dump when destroying an object that had its
+XV_OWNER or RECTOBJ_PARENT set to NULL.
+--
+Also, a warning:  some implementations of SunPro's math library
+contain bogus implementations of sincos.  The symptoms can
+be seen if the clockobj's hands don't look anything like the
+picture in the documentation.  If you have this problem, 
+define NO_SINCOS and recompile the library.
+--
+
+Patch 3, new features:
+
+DRAWICON_LAYOUT_CENTER
+
+	Setting this attribute to TRUE causes the drawicon to attempt
+ 	to center itself when the image or text is resized.  This
+	avoids confusing the user when the drawicon's text has changed
+	size after editing.  This will not have a visible effect if the
+	drawicon's parent is an array_tile, tree, etc. but it will if
+ 	it is a canvas_shell or bag.
+	The default is FALSE, and the behavior is as before.
+	examples/grip/temp_grip.c has been changed to demonstrate the
+	feature.
+
+
+ 
+Patch3, bug fixes:
+
+Icons drawn with DDrawImage() could be erroneously selected due to a
+typo in Dmapimage().
+--
+The drawicon's geometry manager was not correctly calculating
+geometries when only the size of the text changed.
+--
+Added ranlib to makefile install target.
+--
+
+Patch 4, new features:
+
+ Three new demos have been added to the examples directories:
+	examples/thermo	- a program that uses the drawarea to render
+		a thermometer.  It is constructed so that you can
+		rip out the thermometer portion and include it
+		in another program easily.
+ 
+	examples/color/choose - a program that creates an array of
+		colored drawrects, the user can select a color by
+		clicking on the appropriate drawrect.  This code is
+		written so it is easy to reuse in another program.
+		
+	examples/color/dndchoose - this is similar to the color chooser
+		example, but also handles drag and drop of the colors.
+
+ Patch 4, bug fixes:
+ 
+Setting CANVAS_SHELL_BATCH_REPAINT to TRUE on creation did not
+always immediately turn on repaint batching.
+--
+Children of a drawarea were not get repainted when their size or 
+position changed.
+--
+Setting RECTOBJ_SELECTED to TRUE on an object that is marked as exclusive
+select did not clear the other selections.
+--
+The drawicon was not centering either the text or the image when a
+size change did not effect the size of the drawicon itself.
+
+
+

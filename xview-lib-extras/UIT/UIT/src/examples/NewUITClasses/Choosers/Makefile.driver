@@ -1,0 +1,41 @@
+# 
+#    SCCS ID: %Z%%M% %I% %E% SMI
+#
+#    Copyright (c) 1992 Sun Microsystems, Inc.  All rights reserved.
+#    See LEGAL_NOTICE file for terms of the license. 
+# 
+
+PROGRAM = driver
+
+# Derived parameters.
+
+SOURCES = \
+	driver_ui.cc \
+	ccb_handler.cc \
+	fcb_handler.cc
+
+OBJECTS = \
+	$(SOURCES:%.cc=%.o)
+
+# Compiler flags.
+
+CPPFLAGS += -I$(UITHOME)/include/c++ -I$(OPENWINHOME)/include -I..
+LDFLAGS += -L$(UITHOME)/lib -L$(OPENWINHOME)/lib
+LDLIBS += -lUIC -lxvps -lxview -lolgx -lX11
+LDLIBS += -lwire -lcps -ltt -lce -lI18N
+LDLIBS += -lm
+
+# Standard targets.
+
+all:	 $(PROGRAM)
+
+$(PROGRAM): $(OBJECTS)
+	$(LINK.cc) -o $(PROGRAM) $(OBJECTS) $(LDLIBS) \
+	ColorChooserButton.o FileChooserButton.o
+
+driver_ui.o: driver_ui.cc
+ccb_handler.o: ccb_handler.cc
+fcb_handler.o: fcb_handler.cc
+
+delete:
+	/bin/rm -f *.o driver core

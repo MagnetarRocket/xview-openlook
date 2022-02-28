@@ -1,0 +1,188 @@
+#
+#    SCCS ID: @(#)Makefile.g++.NO_XVPS 1.3 93/06/01 SMI
+#
+#    Copyright (c) 1990-1992 Sun Microsystems, Inc.  All rights reserved.
+#    See LEGAL_NOTICE file for terms of the license.
+#
+LIB     = .
+INCLUDE = ../../include/c++
+GENINC  = ../../../Generic/include
+GENERICHOME  = ../../../Generic
+SLINGSHOT = SLINGSHOT
+SSPKGHOME = /usr/openwin
+UITDEST = /usr/openwin
+
+# Use the CCFLAGS with -fpic to create a .so file
+CCFLAGS = -c -g -pipe -O3 -fPIC -fno-for-scope -I$(INCLUDE) -I$(GENERICHOME)/include -I$(OPENWINHOME)/include
+
+CCFLAGS += -DNO_XVPS
+
+COMPILE.cc = g++ $(CCFLAGS)
+LINK.cc = g++ $(CCFLAGS)
+
+OBJECTS = UIObject.o UIWindow.o BaseWindow.o PopUpWindow.o \
+	   ComponentDisplay.o UIDisplay.o UIComponent.o TextItem.o \
+	   UIInputTextItem.o AlphanumericInput.o NumericInput.o Button.o \
+	   Gauge.o Slider.o Scroller.o TextDisplay.o TermDisplay.o UIChoice.o \
+	   ToggleChoice.o StackChoice.o CheckBoxChoice.o ListChoice.o \
+	   ColorMap.o Notifier.o Image.o CharacterFont.o \
+  	   UIMenu.o CommandMenu.o ChoiceMenu.o NoticePrompt.o \
+	   HotRegion.o ComponentGroup.o MultilineInput.o \
+	   DropTarget.o InputEvent.o TTYDisplay.o FileChooser.o
+
+include Make-ss.OBJECTS
+include Make.TARGET
+
+ColorMap.o:	ColorMap.cc $(INCLUDE)/ColorMap.h \
+		$(INCLUDE)/UIObject.h \
+		$(INCLUDE)/UICTypes.h $(GENINC)/GenericList.h
+
+Notifier.o:	Notifier.cc $(INCLUDE)/Notifier.h $(GENINC)/Generic.h \
+		$(INCLUDE)/UIObject.h \
+		$(INCLUDE)/BaseWindow.h 
+
+Image.o:	Image.cc $(INCLUDE)/Image.h $(GENINC)/Generic.h \
+		$(INCLUDE)/UIObject.h
+
+CharacterFont.o: CharacterFont.cc $(INCLUDE)/CharacterFont.h \
+		$(INCLUDE)/UIObject.h \
+		$(GENINC)/Generic.h
+
+UIMenu.o:	UIMenu.cc $(INCLUDE)/UIMenu.h $(GENINC)/Generic.h \
+		$(INCLUDE)/UIObject.h \
+		$(INCLUDE)/UICTypes.h $(INCLUDE)/ColorMap.h
+
+CommandMenu.o:	CommandMenu.cc $(INCLUDE)/CommandMenu.h $(GENINC)/Generic.h \
+		$(INCLUDE)/UIObject.h \
+		$(INCLUDE)/UICTypes.h $(INCLUDE)/UIMenu.h
+
+ChoiceMenu.o:	ChoiceMenu.cc $(INCLUDE)/ChoiceMenu.h $(GENINC)/Generic.h \
+		$(INCLUDE)/UIObject.h \
+		$(INCLUDE)/UICTypes.h $(INCLUDE)/UIMenu.h
+
+UIObject.o:	UIObject.cc $(INCLUDE)/UIObject.h $(INCLUDE)/UICTypes.h \
+		$(GENINC)/Generic.h $(GENINC)/GenericHash.h \
+		$(INCLUDE)/ColorMap.h
+
+UIWindow.o:	UIWindow.cc $(INCLUDE)/UIWindow.h $(INCLUDE)/UIObject.h \
+		$(INCLUDE)/UICTypes.h $(GENINC)/GenericList.h
+
+UIComponent.o:	UIComponent.cc $(INCLUDE)/UIComponent.h $(INCLUDE)/UIObject.h \
+		$(INCLUDE)/UICTypes.h $(INCLUDE)/Image.h
+
+TextItem.o:	TextItem.cc $(INCLUDE)/TextItem.h $(INCLUDE)/UIObject.h \
+		$(INCLUDE)/UIComponent.h $(INCLUDE)/UICTypes.h \
+		$(INCLUDE)/Image.h
+
+Button.o:	Button.cc $(INCLUDE)/Button.h $(INCLUDE)/UIObject.h \
+		$(INCLUDE)/UIComponent.h $(INCLUDE)/UICTypes.h \
+		$(INCLUDE)/Image.h $(INCLUDE)/UIMenu.h
+
+Gauge.o:	Gauge.cc $(INCLUDE)/Gauge.h $(INCLUDE)/UIObject.h \
+		$(INCLUDE)/UIComponent.h $(INCLUDE)/UICTypes.h \
+		$(INCLUDE)/Image.h
+
+UIInputTextItem.o: UIInputTextItem.cc $(INCLUDE)/UIInputTextItem.h \
+		$(INCLUDE)/UIObject.h $(INCLUDE)/UIComponent.h \
+		$(INCLUDE)/UICTypes.h $(INCLUDE)/Image.h
+
+AlphanumericInput.o: AlphanumericInput.cc $(INCLUDE)/UIInputTextItem.h \
+		$(INCLUDE)/UIObject.h $(INCLUDE)/UIComponent.h \
+		$(INCLUDE)/UICTypes.h $(INCLUDE)/AlphanumericInput.h \
+		$(INCLUDE)/Image.h
+
+Slider.o:	Slider.cc $(INCLUDE)/Slider.h \
+		$(INCLUDE)/UIObject.h $(INCLUDE)/UIComponent.h \
+		$(INCLUDE)/UICTypes.h $(INCLUDE)/Gauge.h $(INCLUDE)/Image.h
+
+NumericInput.o: NumericInput.cc $(INCLUDE)/UIInputTextItem.h \
+		$(INCLUDE)/UIObject.h $(INCLUDE)/UIComponent.h \
+		$(INCLUDE)/UICTypes.h $(INCLUDE)/NumericInput.h \
+		$(INCLUDE)/Image.h
+
+BaseWindow.o:	BaseWindow.cc $(INCLUDE)/BaseWindow.h $(INCLUDE)/UIObject.h \
+		$(INCLUDE)/UIWindow.h $(INCLUDE)/UICTypes.h \
+ 		$(GENINC)/GenericList.h $(INCLUDE)/Image.h
+
+PopUpWindow.o:	PopUpWindow.cc $(INCLUDE)/PopUpWindow.h $(INCLUDE)/UIObject.h \
+		$(INCLUDE)/UIWindow.h $(INCLUDE)/UICTypes.h \
+ 		$(GENINC)/GenericList.h $(INCLUDE)/ColorMap.h
+
+UIDisplay.o:	UIDisplay.cc $(INCLUDE)/UIDisplay.h $(INCLUDE)/UIObject.h \
+		$(INCLUDE)/UICTypes.h
+
+ComponentDisplay.o:	ComponentDisplay.cc $(INCLUDE)/ComponentDisplay.h \
+		$(INCLUDE)/UIObject.h $(INCLUDE)/UIDisplay.h \
+		$(INCLUDE)/UICTypes.h $(GENINC)/GenericList.h \
+		$(INCLUDE)/UIMenu.h
+
+TextDisplay.o:	TextDisplay.cc $(INCLUDE)/TextDisplay.h $(INCLUDE)/UIObject.h \
+		$(INCLUDE)/UIDisplay.h $(INCLUDE)/UICTypes.h \
+		$(INCLUDE)/ColorMap.h
+
+TermDisplay.o:	TermDisplay.cc $(INCLUDE)/TermDisplay.h $(INCLUDE)/UIObject.h \
+		$(INCLUDE)/UIDisplay.h $(INCLUDE)/UICTypes.h \
+		$(INCLUDE)/ColorMap.h
+
+UIChoice.o:	UIChoice.cc $(INCLUDE)/UIChoice.h \
+		$(INCLUDE)/UIObject.h $(INCLUDE)/UIComponent.h \
+		$(INCLUDE)/UICTypes.h $(GENINC)/GenericList.h \
+		$(INCLUDE)/Image.h $(INCLUDE)/ColorMap.h
+ 
+StackChoice.o:	StackChoice.cc $(INCLUDE)/UIChoice.h \
+		$(INCLUDE)/UIObject.h $(INCLUDE)/UIComponent.h \
+		$(INCLUDE)/UICTypes.h $(INCLUDE)/StackChoice.h \
+		$(GENINC)/GenericList.h $(INCLUDE)/Image.h
+
+ToggleChoice.o:	ToggleChoice.cc $(INCLUDE)/UIChoice.h \
+		$(INCLUDE)/UIObject.h $(INCLUDE)/UIComponent.h \
+		$(INCLUDE)/UICTypes.h $(INCLUDE)/ToggleChoice.h \
+		$(GENINC)/GenericList.h $(INCLUDE)/Image.h
+
+ListChoice.o:	ListChoice.cc $(INCLUDE)/UIChoice.h \
+		$(INCLUDE)/UIObject.h $(INCLUDE)/UIComponent.h \
+		$(INCLUDE)/UICTypes.h $(INCLUDE)/ListChoice.h \
+		$(GENINC)/GenericList.h $(INCLUDE)/Image.h \
+	 	$(INCLUDE)/UIMenu.h
+
+CheckBoxChoice.o:	CheckBoxChoice.cc $(INCLUDE)/UIChoice.h \
+		$(INCLUDE)/UIObject.h $(INCLUDE)/UIComponent.h \
+		$(INCLUDE)/UICTypes.h $(INCLUDE)/CheckBoxChoice.h \
+		$(GENINC)/GenericList.h $(INCLUDE)/Image.h
+
+Scroller.o:	Scroller.cc $(INCLUDE)/Scroller.h $(INCLUDE)/UIObject.h \
+		$(INCLUDE)/UIComponent.h $(INCLUDE)/UICTypes.h \
+		$(INCLUDE)/ColorMap.h
+
+NoticePrompt.o:	NoticePrompt.cc $(INCLUDE)/NoticePrompt.h \
+		$(INCLUDE)/UIObject.h $(INCLUDE)/UICTypes.h \
+		$(INCLUDE)/ColorMap.h
+
+ComponentGroup.o: ComponentGroup.cc $(INCLUDE)/ComponentGroup.h \
+                $(INCLUDE)/UIComponent.h $(INCLUDE)/ComponentDisplay.h \
+                $(INCLUDE)/UIObject.h $(INCLUDE)/UICTypes.h
+
+MultilineInput.o: MultilineInput.cc $(INCLUDE)/MultilineInput.h \
+                $(INCLUDE)/UIComponent.h $(INCLUDE)/UIInputTextItem.h \
+                $(INCLUDE)/UIObject.h $(INCLUDE)/UICTypes.h
+
+DropTarget.o:   DropTarget.cc $(INCLUDE)/DropTarget.h $(INCLUDE)/UIObject.h \
+                $(INCLUDE)/UIComponent.h $(INCLUDE)/UICTypes.h \
+                $(INCLUDE)/ColorMap.h
+
+TTYDisplay.o:	TTYDisplay.cc $(INCLUDE)/TTYDisplay.h $(INCLUDE)/UIObject.h \
+		$(INCLUDE)/UIDisplay.h $(INCLUDE)/UICTypes.h \
+		$(INCLUDE)/ColorMap.h
+
+FileChooser.o:  FileChooser.cc $(INCLUDE)/FileChooser.h $(INCLUDE)/UIObject.h \
+                $(INCLUDE)/UIWindow.h $(INCLUDE)/PopUpWindow.h \
+                $(INCLUDE)/UICTypes.h $(INCLUDE)/ColorMap.h
+ 
+clean:
+	/bin/rm -f $(OBJECTS)
+	/bin/rm -f $(SSOBJECTS)
+	/bin/rm -f $(TARGET)
+	/bin/rm -f $(INCLUDE)/Generic.h
+	/bin/rm -f $(INCLUDE)/GenericList.h
+	/bin/rm -f $(INCLUDE)/GenericHash.h
+	/bin/rm -f $(INCLUDE)/Boolean.h

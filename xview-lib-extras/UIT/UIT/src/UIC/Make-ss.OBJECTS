@@ -1,0 +1,18 @@
+SSOBJECTS = \
+	CanvasShellDisplay.o CSComponent.o \
+	CSArrayTile.o \
+	CSBag.o \
+	CSBox.o \
+	CSCenterBox.o \
+	CSClock.o \
+	CSDrawArea.o \
+	CSDrawIcon.o \
+	CSDrawImage.o \
+	CSDrawLine.o \
+	CSDrawRect.o \
+	CSDrawText.o \
+	CSGrip.o \
+	CSTempGrip.o \
+	CSTree.o
+
+CCFLAGS += -D$(SLINGSHOT) -I$(SSPKGHOME)/include
