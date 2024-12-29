@@ -1,0 +1,2 @@
+Source:
+https://slackbuilds.org/repository/15.0/libraries/xview/
